@@ -1606,9 +1606,10 @@ html {
 }
 
 h2.about-pre-title {
-    font-size: 60px;
-    font-family: var(--text-font);
-    line-height: 70px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.2;
     text-transform: uppercase;
     color: var(--primary-color);
 }

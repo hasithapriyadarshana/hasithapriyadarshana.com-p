@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useRef } from "react";
 
 const work_data = [
@@ -41,34 +41,36 @@ const education_data = [
   {
     id: 1,
     image: "assets/images/about/usjp.svg",
-    date: "2024 - 2028",
-    title: "Bachelor of ICT (Hons) — Network Technology",
-    company: "University of Sri Jayewardenepura",
-    desc: "Pursuing a four-year Bachelor of ICT (Honours) degree with a focus on networking, cybersecurity, cloud computing, software development, databases, and emerging technologies.",
+    date: "May 2024 – May 2028",
+    title: "Bachelor of ICT (Honours) – Network Technology",
+    company: "Faculty of Technology, University of Sri Jayewardenepura",
+    desc: "Pursuing a four-year BICT (Honours) degree specializing in Network Technology, with a focus on networking, cybersecurity, cloud computing, software development, databases, and emerging technologies. The program develops practical and theoretical ICT skills to prepare graduates for professional careers in computing and information technology.",
     proofs: [
-      "assets/images/proofs/usjp-1.jpg",
-      "assets/images/proofs/usjp-1.jpg"
+      "assets/images/proofs/hasithapriyadarshana-usjp-1.png",
+      "assets/images/proofs/hasithapriyadarshana-usjp-2.png",
+      "assets/images/proofs/hasithapriyadarshana-usjp-3.png"
     ],
   },
   {
     id: 2,
-    image: "assets/images/about/ananda.svg",
-    date: "2014 - 2023",
-    title: "Secondary & Advanced Level Education",
-    company: "Ananda Sastralaya National School",
-    desc: "Completed secondary and Advanced Level education in the Technology Stream, developing a strong foundation in technology and information communication.",
-    proofs: [
-      "assets/images/proofs/ananda-1.jpg",
+    image: "assets/images/about/hasithapriyadarshana-anandasastralaya-mathugama-asm-mathugama.svg",
+    date: "2014 Jan - 2023 Feb",
+    title: "G.C.E. O/L & A/L Education",
+    company: "Ananda Sastralaya National School - Mathugama",
+    desc: "Completed secondary and Advanced Level education (From Grade 6 to 13) in the Technology Stream, achieving 9 A passes at G.C.E. O/L, including Mathematics, Science, ICT, and English. At G.C.E. A/L, achieved 3 A passes in Engineering Technology, Science for Technology, and ICT, with a Z-Score of 2.80, ranking 2nd in the Kalutara District and 32nd island-wide.",
+    proofs: ["assets/images/proofs/hasithapriyadarshana-asm-ananda sastralaya.png",
+      "assets/images/proofs/hasithapriyadarshana-asm-ananda sastralaya-1.png"
     ],
   },
   {
     id: 3,
-    image: "assets/images/about/weediyabandara.svg",
-    date: "2009 - 2013",
+    image: "assets/images/about/Hasitha priyadarshana - Weediyabandara National School Morapitiya.svg",
+    date: "2009 Jan - 2013 Dec",
     title: "Primary Education",
-    company: "Weediyabandara M.V., Morapitiya",
-    desc: "Completed primary education and successfully passed the Grade 5 Scholarship Examination.",
-    proofs: [],
+    company: "Weediyabandara National School -Morapitiya",
+    desc: "Completed primary education from Grade 1 to Grade 5, building a strong foundation in core subjects, communication, mathematics, and general knowledge. Successfully passed the Grade 5 Scholarship Examination with 163 marks, demonstrating consistent academic performance and a strong commitment to learning from an early stage.",
+    proofs: ["assets/images/proofs/Hasitha priyadarshana - Weediyabandara National School Morapitiya-1.png",
+      "assets/images/proofs/Hasitha priyadarshana - Weediyabandara National School Morapitiya-2.png"],
   },
 ];
 
@@ -80,9 +82,7 @@ const volunteer_data = [
     title: "Co-Chair",
     company: "CryptX 2.0",
     desc: "Contributing to the planning and coordination of a university-level cybersecurity event featuring technical competitions, CTF challenges, knowledge-sharing sessions, and industry-focused activities.",
-    proofs: [
-      "assets/images/proofs/cryptx-1.jpg",
-    ],
+    proofs: ["assets/images/proofs/cryptx-1.jpg"],
   },
   {
     id: 2,
@@ -91,9 +91,7 @@ const volunteer_data = [
     title: "Vice President",
     company: "Career Skills Development Society",
     desc: "Supporting professional development initiatives for university students through workshops, career programmes, industry engagement, and networking opportunities.",
-    proofs: [
-      "assets/images/proofs/csnds-1.jpg",
-    ],
+    proofs: ["assets/images/proofs/csnds-1.jpg"],
   },
   {
     id: 3,
@@ -111,13 +109,17 @@ const volunteer_data = [
     title: "Participant",
     company: "Touch The Peak",
     desc: "Participated in a university leadership and personal development programme focused on professional growth, teamwork, and leadership skills.",
-    proofs: [
-      "assets/images/proofs/touchpeak-1.jpg",
-    ],
+    proofs: ["assets/images/proofs/touchpeak-1.jpg"],
   },
 ];
 
-function ProofImages({ proofs, company }: { proofs: string[]; company: string }) {
+function ProofImages({
+  proofs,
+  company,
+}: {
+  proofs: string[];
+  company: string;
+}) {
   if (!proofs || proofs.length === 0) return null;
   return (
     <div className="timeline-proofs">
@@ -147,7 +149,9 @@ function TimelineProgress({ children }: { children: React.ReactNode }) {
         }
       });
 
-      const line = timeline.querySelector(".timeline-line-progress") as HTMLElement;
+      const line = timeline.querySelector(
+        ".timeline-line-progress",
+      ) as HTMLElement;
       if (!line) return;
       const timelineRect = timeline.getBoundingClientRect();
       const timelineTop = timelineRect.top;
@@ -195,9 +199,14 @@ export default function ResumeArea() {
                         <div className="timeline-content">
                           <span className="resume-date">{item.date}</span>
                           <h2>{item.title}</h2>
-                          <span className="timeline-company">{item.company}</span>
+                          <span className="timeline-company">
+                            {item.company}
+                          </span>
                           <p>{item.desc}</p>
-                          <ProofImages proofs={item.proofs} company={item.company} />
+                          <ProofImages
+                            proofs={item.proofs}
+                            company={item.company}
+                          />
                         </div>
                       </div>
                     </div>
@@ -224,9 +233,14 @@ export default function ResumeArea() {
                         <div className="timeline-content">
                           <span className="resume-date">{item.date}</span>
                           <h2>{item.title}</h2>
-                          <span className="timeline-company">{item.company}</span>
+                          <span className="timeline-company">
+                            {item.company}
+                          </span>
                           <p>{item.desc}</p>
-                          <ProofImages proofs={item.proofs} company={item.company} />
+                          <ProofImages
+                            proofs={item.proofs}
+                            company={item.company}
+                          />
                         </div>
                       </div>
                     </div>
@@ -239,14 +253,18 @@ export default function ResumeArea() {
           {/* Volunteering Experience */}
           <div className="row">
             <div className="col-xl-12">
-              <div className="timeline-section wow fadeInUp delay-0-2s" style={{ paddingTop: "60px" }}>
+              <div
+                className="timeline-section wow fadeInUp delay-0-2s"
+                style={{ paddingTop: "60px" }}
+              >
                 <h3 className="timeline-title">
                   <i className="fas fa-hands-helping"></i>
                   Volunteering Experience
                 </h3>
                 <p className="timeline-subtitle">
-                  Active leadership, technical management, and community initiative
-                  positions I&apos;ve held across societies and tech organizations.
+                  Active leadership, technical management, and community
+                  initiative positions I&apos;ve held across societies and tech
+                  organizations.
                 </p>
                 <TimelineProgress>
                   <div className="timeline-full">
@@ -260,9 +278,14 @@ export default function ResumeArea() {
                           <div className="timeline-content">
                             <span className="resume-date">{item.date}</span>
                             <h2>{item.title}</h2>
-                            <span className="timeline-company">{item.company}</span>
+                            <span className="timeline-company">
+                              {item.company}
+                            </span>
                             <p>{item.desc}</p>
-                            <ProofImages proofs={item.proofs} company={item.company} />
+                            <ProofImages
+                              proofs={item.proofs}
+                              company={item.company}
+                            />
                           </div>
                         </div>
                       </div>
