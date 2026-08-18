@@ -2950,6 +2950,130 @@ ul.extra-skills li i {
 }
 
 
+/*
+* ----------------------------------------------------------------------------------------
+* 15.GALLERY CSS STYLE
+* ----------------------------------------------------------------------------------------
+*/
+.gallery-area {
+    padding: 100px 0 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-row {
+    overflow: hidden;
+    padding: 10px 0;
+    position: relative;
+}
+
+.gallery-row::before,
+.gallery-row::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 180px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.gallery-row::before {
+    left: 0;
+    background: linear-gradient(to right, var(--body-bg, #0a0a0a) 0%, transparent 100%);
+}
+
+.gallery-row::after {
+    right: 0;
+    background: linear-gradient(to left, var(--body-bg, #0a0a0a) 0%, transparent 100%);
+}
+
+.gallery-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+}
+
+.gallery-scroll-left {
+    animation: galleryScrollLeft 50s linear infinite;
+}
+
+.gallery-scroll-right {
+    animation: galleryScrollRight 50s linear infinite;
+}
+
+.gallery-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes galleryScrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes galleryScrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+.gallery-slide {
+    flex: 0 0 300px;
+    height: 220px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.gallery-slide:hover {
+    transform: scale(1.05);
+}
+
+.gallery-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.gallery-lightbox-content {
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    background: var(--lighter-color);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.gallery-lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.gallery-lightbox-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
 
 
 /*

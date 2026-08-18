@@ -278,7 +278,7 @@ Version      : 1.0
     }
 
     .footer-top h2 {
-        font-size: 120px;
+        font-size: 40px;
         line-height: 1.0em;
     }
 
@@ -1528,5 +1528,28 @@ Version      : 1.0
     }
     .main-hero-area .hero-content p {
         font-size: 14px;
+    }
+}
+
+/* Gallery Carousel Responsive */
+@media only screen and (max-width: 767px) {
+    .gallery-slide {
+        flex: 0 0 200px;
+        height: 150px;
+    }
+    .gallery-row::before,
+    .gallery-row::after {
+        width: 60px;
+    }
+}
+
+@media only screen and (max-width: 479px) {
+    .gallery-slide {
+        flex: 0 0 150px;
+        height: 110px;
+    }
+    .gallery-row::before,
+    .gallery-row::after {
+        width: 40px;
     }
 }

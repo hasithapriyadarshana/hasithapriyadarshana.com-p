@@ -6,6 +6,7 @@ import AboutArea from './AboutArea'
 import ServiceArea from './ServiceArea'
 import HeaderOne from '@/layouts/headers/HeaderOne'
 import PortfolioArea from './PortfolioArea'
+import GalleryArea from './GalleryArea'
 import TestimonoalArea from './TestimonoalArea'
 import BlogArea from './BlogArea'
 import ContactArea from './ContactArea'
@@ -20,6 +21,7 @@ export default function Home() {
           <main>
             <HeroArea />
             <BrandArea />
+            <GalleryArea />
             <AboutArea />
             <ServiceArea />
             <PortfolioArea />
