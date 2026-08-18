@@ -247,6 +247,8 @@ Version      : 1.0
     }
 
     h2.about-pre-title {
+        font-size: 36px;
+        line-height: 1.2;
         margin-bottom: 30px;
     }
 
@@ -441,6 +443,46 @@ Version      : 1.0
 
     .hero-counter-area .counter-title {
         font-size: 14px;
+    }
+
+    /* Timeline mobile layout */
+    .timeline-item {
+        padding: 20px;
+        margin-left: 20px;
+    }
+
+    .timeline-item-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .timeline-logo {
+        width: 56px;
+        height: 56px;
+        margin-bottom: 4px;
+    }
+
+    .timeline-content .resume-date {
+        margin-bottom: 0;
+    }
+
+    .timeline-content h2 {
+        font-size: 16px;
+        margin-top: 4px;
+        margin-bottom: 4px;
+    }
+
+    .timeline-content .timeline-company {
+        margin-bottom: 4px;
+    }
+
+    .timeline-proofs {
+        margin-top: 10px;
+    }
+
+    .timeline-section {
+        margin-bottom: 40px;
     }
 
 }
@@ -1541,6 +1583,10 @@ Version      : 1.0
     .gallery-row::after {
         width: 60px;
     }
+    .blog-post-caption h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
 }
 
 @media only screen and (max-width: 479px) {
@@ -1551,5 +1597,9 @@ Version      : 1.0
     .gallery-row::before,
     .gallery-row::after {
         width: 40px;
+    }
+    .blog-post-caption h2 {
+        font-size: 18px;
+        line-height: 1.3;
     }
 }

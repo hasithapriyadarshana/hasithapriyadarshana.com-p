@@ -1606,10 +1606,10 @@ html {
 }
 
 h2.about-pre-title {
-    font-size: 40px;
+    font-size: 60px;
     font-family: var(--text-font);
-    font-size: 22px;
-    text-transform: capitalize;
+    line-height: 70px;
+    text-transform: uppercase;
     color: var(--primary-color);
 }
 
@@ -1949,15 +1949,16 @@ ul.extra-skills li i {
 }
 
 .timeline-item .resume-date {
-    background: var(--main-color);
+    background: transparent;
     display: inline-block;
     border-radius: 2em;
-    padding: 5px 14px;
+    padding: 2px 8px;
     font-size: 11px;
     font-weight: 500;
-    color: #fff;
+    color: #070707;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    margin: 0;
 }
 
 .timeline-item h2 {
@@ -2024,8 +2025,8 @@ ul.extra-skills li i {
 
 .timeline-logo {
     flex-shrink: 0;
-    width: 56px;
-    height: 56px;
+    width: 70px;
+    height: 70px;
     border-radius: 14px;
     overflow: hidden;
     background: #f5f5f5;
@@ -2992,18 +2993,22 @@ ul.extra-skills li i {
     display: flex;
     gap: 0;
     width: max-content;
+    will-change: transform;
 }
 
 .gallery-scroll-left {
     animation: galleryScrollLeft 50s linear infinite;
+    -webkit-animation: galleryScrollLeft 50s linear infinite;
 }
 
 .gallery-scroll-right {
     animation: galleryScrollRight 50s linear infinite;
+    -webkit-animation: galleryScrollRight 50s linear infinite;
 }
 
 .gallery-track:hover {
     animation-play-state: paused;
+    -webkit-animation-play-state: paused;
 }
 
 @keyframes galleryScrollLeft {

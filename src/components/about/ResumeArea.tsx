@@ -122,9 +122,9 @@ function ProofImages({ proofs, company }: { proofs: string[]; company: string })
   return (
     <div className="timeline-proofs">
       {proofs.map((src, i) => (
-        <a key={i} href={src} target="_blank" rel="noopener noreferrer" className="timeline-proof-thumb">
+        <div key={i} className="timeline-proof-thumb">
           <img src={src} alt={`${company} proof ${i + 1}`} />
-        </a>
+        </div>
       ))}
     </div>
   );
