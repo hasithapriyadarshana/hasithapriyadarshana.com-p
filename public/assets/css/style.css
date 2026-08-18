@@ -2962,63 +2962,55 @@ ul.extra-skills li i {
     overflow: hidden;
 }
 
-.gallery-row {
+.gallery-scroller {
     overflow: hidden;
     padding: 10px 0;
-    position: relative;
 }
 
-.gallery-row::before,
-.gallery-row::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 180px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.gallery-row::before {
-    left: 0;
-    background: linear-gradient(to right, var(--body-bg, #0a0a0a) 0%, transparent 100%);
-}
-
-.gallery-row::after {
-    right: 0;
-    background: linear-gradient(to left, var(--body-bg, #0a0a0a) 0%, transparent 100%);
-}
-
-.gallery-track {
+.gallery-scroller__inner {
     display: flex;
-    gap: 0;
+    gap: 20px;
+}
+
+.gallery-scroller__inner img {
+    flex-shrink: 0;
+    height: 220px;
+    width: auto;
+    object-fit: cover;
+}
+
+.gallery-scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: -webkit-linear-gradient(left, transparent, white 10%, white 90%, transparent);
+    mask: linear-gradient(90deg, transparent, white 10%, white 90%, transparent);
+}
+
+.gallery-scroller[data-animated="true"] .gallery-scroller__inner {
     width: max-content;
-    will-change: transform;
+    flex-wrap: nowrap;
+    animation: galleryScroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
 }
 
-.gallery-scroll-left {
-    animation: galleryScrollLeft 50s linear infinite;
-    -webkit-animation: galleryScrollLeft 50s linear infinite;
+.gallery-scroller[data-direction="right"] {
+    --_animation-direction: reverse;
 }
 
-.gallery-scroll-right {
-    animation: galleryScrollRight 50s linear infinite;
-    -webkit-animation: galleryScrollRight 50s linear infinite;
+.gallery-scroller[data-direction="left"] {
+    --_animation-direction: forwards;
 }
 
-.gallery-track:hover {
-    animation-play-state: paused;
-    -webkit-animation-play-state: paused;
+.gallery-scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
 }
 
-@keyframes galleryScrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.gallery-scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
 }
 
-@keyframes galleryScrollRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+@keyframes galleryScroll {
+    to {
+        transform: translate(calc(-50% - 0.5rem));
+    }
 }
 
 .gallery-slide {

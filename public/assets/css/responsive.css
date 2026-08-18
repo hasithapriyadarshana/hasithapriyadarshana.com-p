@@ -1592,13 +1592,8 @@ Version      : 1.0
 
 /* Gallery Carousel Responsive */
 @media only screen and (max-width: 767px) {
-    .gallery-slide {
-        flex: 0 0 200px;
+    .gallery-scroller__inner img {
         height: 150px;
-    }
-    .gallery-row::before,
-    .gallery-row::after {
-        width: 60px;
     }
     .blog-post-caption h2 {
         font-size: 22px;
@@ -1607,13 +1602,8 @@ Version      : 1.0
 }
 
 @media only screen and (max-width: 479px) {
-    .gallery-slide {
-        flex: 0 0 150px;
-        height: 110px;
-    }
-    .gallery-row::before,
-    .gallery-row::after {
-        width: 40px;
+    .gallery-scroller__inner img {
+        height: 120px;
     }
     .blog-post-caption h2 {
         font-size: 18px;

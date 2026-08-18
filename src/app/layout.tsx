@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       "Portfolio of Hasitha Priyadarshana — Network Technology undergraduate, web developer, and founder of HyperX Innovations.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/assets/HasithaPriyadarshana-opengraph.svg",
         width: 1200,
         height: 630,
         alt: "Hasitha Priyadarshana",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Hasitha Priyadarshana | Network Technology & Web Developer",
     description:
       "Portfolio of Hasitha Priyadarshana — Network Technology undergraduate, web developer, and founder of HyperX Innovations.",
-    images: ["/og-image.png"],
+    images: ["/assets/HasithaPriyadarshana-opengraph.svg"],
   },
   robots: {
     index: true,

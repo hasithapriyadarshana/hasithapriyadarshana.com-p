@@ -1,6 +1,5 @@
 "use client"
-import Image from 'next/image';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import gallery_img_1 from "@/assets/images/carousel/hasithapriyadarshana-carousel-1.jpg";
 import gallery_img_2 from "@/assets/images/carousel/hasithapriyadarshana-carousel-2.jpg";
@@ -10,27 +9,38 @@ import gallery_img_5 from "@/assets/images/carousel/hasithapriyadarshana-carouse
 import gallery_img_6 from "@/assets/images/carousel/hasithapriyadarshana-carousel-6.jpg";
 import gallery_img_7 from "@/assets/images/carousel/hasithapriyadarshana-carousel-7.jpg";
 
-import { StaticImageData } from 'next/image';
-
-interface DataType {
-  id: number;
-  image: StaticImageData;
-}
-
-const gallery_data: DataType[] = [
-  { id: 1, image: gallery_img_1 },
-  { id: 2, image: gallery_img_2 },
-  { id: 3, image: gallery_img_3 },
-  { id: 4, image: gallery_img_4 },
-  { id: 5, image: gallery_img_5 },
-  { id: 6, image: gallery_img_6 },
-  { id: 7, image: gallery_img_7 },
+const images = [
+  { id: 1, src: gallery_img_1.src },
+  { id: 2, src: gallery_img_2.src },
+  { id: 3, src: gallery_img_3.src },
+  { id: 4, src: gallery_img_4.src },
+  { id: 5, src: gallery_img_5.src },
+  { id: 6, src: gallery_img_6.src },
+  { id: 7, src: gallery_img_7.src },
 ];
 
-const row1 = gallery_data.slice(0, 4);
-const row2 = gallery_data.slice(3);
-
 export default function GalleryArea() {
+  useEffect(() => {
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      addAnimation();
+    }
+
+    function addAnimation() {
+      const scrollers = document.querySelectorAll(".gallery-scroller");
+      scrollers.forEach((scroller) => {
+        scroller.setAttribute("data-animated", "true");
+        const scrollerInner = scroller.querySelector(".gallery-scroller__inner");
+        if (!scrollerInner) return;
+        const scrollerContent = Array.from(scrollerInner.children);
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true) as HTMLElement;
+          duplicatedItem.setAttribute("aria-hidden", "true");
+          scrollerInner.appendChild(duplicatedItem);
+        });
+      });
+    }
+  }, []);
+
   return (
     <>
       <div className="gallery-area" id="gallery">
@@ -44,22 +54,18 @@ export default function GalleryArea() {
           </div>
         </div>
 
-        <div className="gallery-row">
-          <div className="gallery-track gallery-scroll-left">
-            {[...row1, ...row1].map((item, i) => (
-              <div key={`r1-${i}`} className="gallery-slide">
-                <Image src={item.image} alt="hasithapriyadarshana" fill style={{ objectFit: "cover" }} />
-              </div>
+        <div className="gallery-scroller" data-direction="left" data-speed="slow">
+          <div className="gallery-scroller__inner">
+            {images.map((img) => (
+              <img key={img.id} src={img.src} alt="hasithapriyadarshana" />
             ))}
           </div>
         </div>
 
-        <div className="gallery-row">
-          <div className="gallery-track gallery-scroll-right">
-            {[...row2, ...row2].map((item, i) => (
-              <div key={`r2-${i}`} className="gallery-slide">
-                <Image src={item.image} alt="hasithapriyadarshana" fill style={{ objectFit: "cover" }} />
-              </div>
+        <div className="gallery-scroller" data-direction="right" data-speed="slow">
+          <div className="gallery-scroller__inner">
+            {[...images].reverse().map((img) => (
+              <img key={`r-${img.id}`} src={img.src} alt="hasithapriyadarshana" />
             ))}
           </div>
         </div>
