@@ -5,6 +5,7 @@ import { Meteors } from "@/components/ui/meteors"
 import { Dock, DockIcon } from "@/components/ui/dock"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Ripple } from "@/components/ui/ripple"
+import { SparklesText } from "@/components/ui/sparkles-text"
 
 export default function HeroArea() {
   const handleImageClick = () => {
@@ -46,10 +47,9 @@ export default function HeroArea() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="row">
             <div className="col-lg-12">
-              <div className="hero-content wow fadeInUp text-center delay-0-2s">
-                <h2>Hasitha Priyadarshana </h2>
-              
-              </div>
+                <SparklesText sparklesCount={15} colors={{ first: "#c9a84c", second: "#e4c76b" }} className="hero-content wow fadeInUp text-center delay-0-2s">
+                  <h2>Hasitha Priyadarshana</h2>
+                </SparklesText>
             </div>
           </div>
           <div className="row">
