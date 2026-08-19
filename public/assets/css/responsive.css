@@ -1511,27 +1511,11 @@ Version      : 1.0
     .main-hero-area .row > div {
         text-align: center;
     }
-    .main-hero-area .clienti-reviews {
-        margin-bottom: 30px;
-    }
     .main-hero-area .hero-content:last-child {
         margin-top: 30px;
     }
     .main-hero-area .hero-content {
         padding: 0 15px;
-    }
-    .clienti-reviews {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-    .clienti-reviews .clienti-profile {
-        justify-content: center;
-    }
-    .clienti-reviews .reviews {
-        text-align: center;
-    }
-    .clienti-reviews .reviews p {
-        margin-top: 0;
     }
 }
 
@@ -1571,11 +1555,23 @@ Version      : 1.0
         flex: 0 0 100%;
         max-width: 100%;
     }
+    .main-hero-area .col-lg-3.pt-30 {
+        margin-top: 10px;
+    }
+    .main-hero-area .col-lg-6 {
+        margin-top: 10px;
+    }
     .main-hero-area .hero-content:last-child {
         margin-top: 20px;
     }
     .main-hero-area .hero-content:last-child .theme-btn {
         margin-top: 10px;
+    }
+    .hero-social-icons,
+    .hero-info-text,
+    .hero-avail-text {
+        justify-content: center;
+        text-align: center;
     }
 }
 

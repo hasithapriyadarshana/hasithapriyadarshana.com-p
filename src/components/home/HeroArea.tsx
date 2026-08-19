@@ -55,20 +55,22 @@ export default function HeroArea() {
           <div className="row">
             <div className="col-lg-3 pt-30">
               <div className="hero-content wow fadeInUp delay-0-2s">
-                <Dock direction="middle" className="mb-2 max-md:mx-auto">
+                <div className="flex justify-center">
+                <Dock direction="middle" className="mb-2">
                   <DockIcon>
-                    <a href="https://github.com/hasithapriyadarshana" target="_blank" rel="noopener noreferrer"><i className="ri-github-line text-xl"></i></a>
+                    <a href="https://github.com/hasithapriyadarshana" target="_blank" rel="noopener noreferrer"><i className="ri-github-line text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="https://www.linkedin.com/in/hasithapriyadarshana/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-fill text-xl"></i></a>
+                    <a href="https://www.linkedin.com/in/hasithapriyadarshana/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-fill text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="https://credly.com" target="_blank" rel="noopener noreferrer"><i className="ri-award-line text-xl"></i></a>
+                    <a href="https://credly.com" target="_blank" rel="noopener noreferrer"><i className="ri-award-line text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="mailto:chathasitha@gmail.com"><i className="ri-mail-line text-xl"></i></a>
+                    <a href="mailto:chathasitha@gmail.com"><i className="ri-mail-line text-2xl"></i></a>
                   </DockIcon>
                 </Dock>
+                </div>
                 <h5 className="hero-avail-text"><span className="pulse-dot"></span>Available for internship and freelance projects</h5>
                 <p className="hero-info-text">
                   ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
