@@ -17,14 +17,14 @@ export default function TestimonoalArea() {
               <div className="testimonial-item wow fadeInUp delay-0-2s">
                 <div className="author">
                   <img
-                    src="assets/images/testimonials/author1.jpg"
+                    src="assets/images/testimonials/author1.svg"
                     alt="Author"
                   />
                 </div>
                 <div className="text">
                   Hasitha is a Superstar! He already made me like a celebrity
-                  author. Working with him was amazing because; He’s very
-                  creative and expert in his field. He’s good communicator with
+                  author. Working with him was amazing because; He's very
+                  creative and expert in his field. He's good communicator with
                   great sense of understanding. He replies back quickly and fix
                   the things instantly. Apart from profession, he has a friendly
                   and flexible nature. Thank you so much Hasitha!
@@ -39,7 +39,7 @@ export default function TestimonoalArea() {
               <div className="testimonial-item wow fadeInUp delay-0-4s">
                 <div className="author">
                   <img
-                    src="assets/images/testimonials/author2.jpg"
+                    src="assets/images/testimonials/author1.svg"
                     alt="Author"
                   />
                 </div>
@@ -60,7 +60,7 @@ export default function TestimonoalArea() {
               <div className="testimonial-item wow fadeInUp delay-0-6s">
                 <div className="author">
                   <img
-                    src="assets/images/testimonials/author3.jpg"
+                    src="assets/images/testimonials/author1.svg"
                     alt="Author"
                   />
                 </div>
@@ -81,7 +81,7 @@ export default function TestimonoalArea() {
               <div className="testimonial-item wow fadeInUp delay-0-8s">
                 <div className="author">
                   <img
-                    src="assets/images/testimonials/author4.jpg"
+                    src="assets/images/testimonials/author1.svg"
                     alt="Author"
                   />
                 </div>
@@ -104,7 +104,7 @@ export default function TestimonoalArea() {
               <div className="testimonial-item wow fadeInUp delay-0-9s">
                 <div className="author">
                   <img
-                    src="assets/images/testimonials/author5.jpg"
+                    src="assets/images/testimonials/author1.svg"
                     alt="Author"
                   />
                 </div>
