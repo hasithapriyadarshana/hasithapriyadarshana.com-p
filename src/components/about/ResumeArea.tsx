@@ -6,9 +6,9 @@ const work_data = [
     id: 1,
     image: "assets/images/about/hyperx.svg",
     date: "2023 - Present",
-    title: "Founder & CEO",
+    title: "Founder",
     company: "HyperX Innovations",
-    desc: "Founded HyperX Innovations to provide web development and technology solutions to businesses and individuals. Responsible for project planning, development, client communication, technical implementation, and business operations.",
+    desc: "Founded HyperX Innovations to provide professional web development, WordPress solutions, and technology services to businesses and individuals. Responsible for project planning, website and WordPress development, custom WordPress solutions, client communication, technical implementation, and overall business operations.",
     proofs: [
       "assets/images/proofs/hyperx-1.jpg",
       "assets/images/proofs/hyperx-2.jpg",
@@ -20,7 +20,7 @@ const work_data = [
     date: "2023 - Present",
     title: "Level 1 Freelancer",
     company: "Fiverr",
-    desc: "Provide website design and development services to clients through Fiverr. Work on business websites, WordPress projects, landing pages, UI improvements, and other web-related solutions.",
+    desc: "Provide professional website design and development services to clients through Fiverr, specializing in WordPress website development, business websites, landing pages, UI improvements, website customization, and other web solutions, with 20+ clients served, 50+ projects completed, a 100% response rate, and a 4.9/5 average rating.",
     proofs: [
       "assets/images/proofs/fiverr-1.jpg",
       "assets/images/proofs/fiverr-2.jpg",

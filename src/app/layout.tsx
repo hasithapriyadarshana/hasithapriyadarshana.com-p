@@ -2,6 +2,7 @@ import "../styles/index.css";
 
 import type { Metadata } from "next";
 import Preloader from "@/components/common/Preloader";
+import DisableRightClick from "@/components/common/DisableRightClick";
 
 export const metadata: Metadata = {
   title: {
@@ -68,6 +69,7 @@ export default function RootLayout({
       </head>
       <body>
         <Preloader />
+        <DisableRightClick />
         {children}
       </body>
     </html>

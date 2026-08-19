@@ -2,7 +2,6 @@
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react'
 
-import portfolio_img_1 from "@/assets/images/projects/work7.png";
 import portfolio_img_2 from "@/assets/images/projects/work2.png";
 import portfolio_img_3 from "@/assets/images/projects/work3.png";
 import portfolio_img_4 from "@/assets/images/projects/work4.png";
@@ -11,7 +10,8 @@ import portfolio_img_6 from "@/assets/images/projects/work6.png";
 
 interface DataType {
   id: number;
-  image: StaticImageData;
+  image?: StaticImageData;
+  imgPath?: string;
   title: string;
   desc: string;
   category: string;
@@ -22,50 +22,50 @@ interface DataType {
 const portfolio_data: DataType[] = [
   {
     id: 1,
-    image: portfolio_img_1,
+    imgPath: "assets/images/projects/Hasithapriyadarshana-portfolio.gif",
     title: "HasithaPriyadarshana.com",
-    desc: "Personal portfolio website built with Next.js, featuring modern design, GSAP animations, and a fully responsive layout.",
+    desc: "A modern personal portfolio website built with Next.js, React, and TypeScript, featuring responsive design, smooth GSAP animations, interactive components, project showcases, galleries, and optimized media.",
     category: "personal",
     github: "https://github.com/hasithapriyadarshana/my-portfolio-next",
     live: "https://hasithapriyadarshana.com",
   },
   {
     id: 2,
-    image: portfolio_img_2,
-    title: "Lanka Guide",
-    desc: "A travel and tourism platform showcasing Sri Lankan destinations, built with responsive design and interactive features.",
+    imgPath: "assets/images/projects/bismarklanka-hasithapriyadarshana.gif",
+    title: "Bismark Lanka Engineering",
+    desc: "At Bismark Lanka Engineering, we take pride in being the leading provider of top-notch construction services, offering the best customized designs to suit our clients' unique needs. With over 18 years of experience in the industry.",
     category: "freelance",
-    live: "#",
+    live: "https://bismarklanka.lk/",
   },
   {
     id: 3,
     image: portfolio_img_3,
-    title: "HyperX Innovations",
-    desc: "Business website for HyperX Innovations providing web development and technology solutions to clients.",
+    title: "B.O.S.S Conveyancing",
+    desc: "B.O.S.S Conveyancing (Buying Or Selling Statewide) is a professional conveyancing website designed for a trusted property settlement service based in St Albans, VIC. The website provides clear information about conveyancing services, helping clients confidently navigate the process of buying and selling property across Victoria.",
     category: "personal",
     live: "#",
   },
   {
     id: 4,
     image: portfolio_img_4,
-    title: "Smart Weather IoT Device",
-    desc: "IoT-based weather monitoring system built with microcontrollers, sensors, and real-time data visualization.",
-    category: "university",
-    github: "#",
+    title: "Travel Trek",
+    desc: "Travel Trek is a modern travel website designed to help travelers discover exciting destinations, explore travel experiences, and plan memorable journeys. The website features a clean and responsive design with destination showcases, travel information, engaging visuals, and user-friendly navigation.",
+    category: "freelance",
+    live: "#",
   },
   {
     id: 5,
     image: portfolio_img_5,
-    title: "Network Traffic Monitor",
-    desc: "Network monitoring tool for analyzing traffic patterns, detecting anomalies, and visualizing bandwidth usage.",
-    category: "networking",
-    github: "#",
+    title: "Alfrieda Conveyancing",
+    desc: "Alfrieda Conveyancing is a professional conveyancing website designed to provide clear and reliable property settlement services for clients buying or selling property. The website presents the company's services, expertise, and professional approach while providing an easy way for clients to learn more and get in touch.",
+    category: "freelance",
+    live: "#",
   },
   {
     id: 6,
     image: portfolio_img_6,
-    title: "E-Commerce Platform",
-    desc: "Full-stack e-commerce solution with product management, cart, checkout, and payment integration.",
+    title: "Cambridge College of Linguistics & Education",
+    desc: "Cambridge College of Linguistics & Education is a modern educational website built to showcase Sri Lanka's premier language learning institution. The website provides information about language programmes, courses, educational services, and learning opportunities through a clean, responsive, and user-friendly design.",
     category: "freelance",
     live: "#",
   },
@@ -117,8 +117,11 @@ export default function PortfolioArea() {
               <div key={item.id} className="col-lg-4 col-md-6">
                 <div className="portfolio-card wow fadeInUp delay-0-2s">
                   <div className="portfolio-card-image">
-                    <Image src={item.image} alt={item.title} style={{ height: "auto", width: "100%" }} />
-                    <span className="portfolio-card-category">{item.category.charAt(0).toUpperCase() + item.category.slice(1)}</span>
+                    {item.imgPath ? (
+                      <img src={item.imgPath} alt={item.title} style={{ width: "100%", height: "auto" }} />
+                    ) : (
+                      <Image src={item.image!} alt={item.title} style={{ height: "auto", width: "100%" }} />
+                    )}
                   </div>
                   <div className="portfolio-card-content">
                     <h4>{item.title}</h4>
