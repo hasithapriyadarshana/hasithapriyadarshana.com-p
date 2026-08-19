@@ -48,7 +48,8 @@ const education_data = [
     proofs: [
       "assets/images/proofs/hasithapriyadarshana-usjp-1.png",
       "assets/images/proofs/hasithapriyadarshana-usjp-2.png",
-      "assets/images/proofs/hasithapriyadarshana-usjp-3.png"
+      "assets/images/proofs/hasithapriyadarshana-usjp-3.png",
+      "assets/images/proofs/hasithapriyadarshana-usjp-4.jpg"
     ],
   },
   {
@@ -79,8 +80,8 @@ const volunteer_data = [
     id: 1,
     image: "assets/images/about/cryptx.svg",
     date: "2025 - Present",
-    title: "Co-Chair",
-    company: "CryptX 2.0",
+    title: "Project Co-Chairperson",
+    company: "CryptX 2.0- ICT Society",
     desc: "Contributing to the planning and coordination of a university-level cybersecurity event featuring technical competitions, CTF challenges, knowledge-sharing sessions, and industry-focused activities.",
     proofs: ["assets/images/proofs/cryptx-1.jpg"],
   },

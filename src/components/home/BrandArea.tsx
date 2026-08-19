@@ -1,6 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
 
+const logos = Array.from({ length: 16 }, (_, i) => ({
+  id: i + 1,
+  src: `assets/images/client-logos/hasitha-priyadarshana-${i + 1}.svg`,
+}));
+
 export default function BrandArea() {
   useEffect(() => {
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -29,7 +34,7 @@ export default function BrandArea() {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <h2>Company I Worked With </h2>
+              <h2>Brands I Worked With</h2>
               <div className="company-list">
                 <div
                   className="scroller"
@@ -37,27 +42,13 @@ export default function BrandArea() {
                   data-speed="slow"
                 >
                   <div className="scroller__inner">
-                    <img
-                      src="assets/images/client-logos/partner1.png"
-                      alt="Company"
-                    />
-                    <img
-                      src="assets/images/client-logos/partner2.png"
-                      alt="Company"
-                    />
-                    <img
-                      src="assets/images/client-logos/partner1.png"
-                      alt="Company"
-                    />
-                    <img
-                      src="assets/images/client-logos/partner2.png"
-                      alt="Company"
-                    />
-                    <img
-                      src="assets/images/client-logos/partner1.png"
-                      alt="Company"
-                    />
-                
+                    {logos.map((logo) => (
+                      <img
+                        key={logo.id}
+                        src={logo.src}
+                        alt="Company"
+                      />
+                    ))}
                   </div>
                 </div>
               </div>
