@@ -5,19 +5,19 @@ const counter_data = [
   {
     id: 1,
     title: "Years Of Experience",
-    count: 3,
+    count: 4,
     cls: "plus",
   },
   {
     id: 2,
-    title: "Completed Projects",
-    count: 30,
+    title: "Freelance Projects",
+    count: 50,
     cls: "plus",
   },
   {
     id: 3,
-    title: "Freelance Orders",
-    count: 20,
+    title: "Client Base",
+    count: 30,
     cls: "plus",
   },
   {

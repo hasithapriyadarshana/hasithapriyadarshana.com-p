@@ -1311,6 +1311,49 @@ html {
     display: block;
 }
 
+.hero-social-icons {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.hero-social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    color: #000;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+.hero-social-icons a:hover {
+    background: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.hero-info-text {
+    font-size: 14px;
+    color: #999;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.hero-info-text b {
+    color: #000;
+}
+
+.hero-avail-text {
+    font-size: 14px;
+    color: var(--primary-color);
+    margin-top: 8px;
+    font-weight: 500;
+}
+
 .hero-image {
     text-align: center;
     position: relative;
@@ -4025,12 +4068,11 @@ ul.blog_pagination li a:hover {
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    gap: 80px;
-    gap: 5rem;
+    gap: 10px;
 }
 
 .scroller__inner img {
-    margin-right: 30px;
+    margin-right: 0;
 }
 
 .scroller[data-animated="true"] {

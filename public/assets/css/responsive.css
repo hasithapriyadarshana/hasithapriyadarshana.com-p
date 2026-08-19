@@ -707,6 +707,12 @@ Version      : 1.0
     .hero-counter-area {
         padding-left: 25px;
         padding-right: 25px;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .hero-counter-area .counter-item {
+        width: 45%;
     }
 }
 
@@ -1592,6 +1598,12 @@ Version      : 1.0
 
 /* Gallery Carousel Responsive */
 @media only screen and (max-width: 767px) {
+    .gallery-area {
+        overflow: visible;
+    }
+    .gallery-scroller {
+        overflow: hidden;
+    }
     .gallery-scroller__inner img {
         height: 150px;
     }

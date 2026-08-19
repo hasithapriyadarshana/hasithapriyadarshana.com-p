@@ -29,22 +29,16 @@ export default function HeroArea() {
           <div className="row">
             <div className="col-lg-3 pt-30">
               <div className="hero-content wow fadeInUp delay-0-2s">
-                <div className="clienti-reviews">
-                  <ul className="clienti-profile">
-                    <li>
-                      <img className="img-fluid" src="assets/images/avatar/01.jpg" alt="client" />
-                    </li>
-                    <li>
-                      <img className="img-fluid" src="assets/images/avatar/02.jpg" alt="client" />
-                    </li>
-                    <li>
-                      <img className="img-fluid" src="assets/images/avatar/03.jpg" alt="client" />
-                    </li>
-                  </ul>
-                  <div className="reviews">50+ reviews <span>(4.9 of 5)</span>
-                    <p>Five-star reviews from my esteemed clients worldwide.</p>
-                  </div>
+                <div className="hero-social-icons">
+                  <a href="https://github.com/hasithapriyadarshana" target="_blank" rel="noopener noreferrer"><i className="ri-github-line"></i></a>
+                  <a href="https://www.linkedin.com/in/hasithapriyadarshana/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-fill"></i></a>
+                  <a href="https://credly.com" target="_blank" rel="noopener noreferrer"><i className="ri-award-line"></i></a>
+                  <a href="mailto:chathasitha@gmail.com"><i className="ri-mail-line"></i></a>
                 </div>
+                <p className="hero-info-text">
+                  ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
+                </p>
+                <p className="hero-avail-text">Available for internship and freelance projects</p>
               </div>
             </div>
             <div className="col-lg-6">
