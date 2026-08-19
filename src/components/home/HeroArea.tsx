@@ -71,7 +71,7 @@ export default function HeroArea() {
                   </DockIcon>
                 </Dock>
                 </div>
-                <h5 className="hero-avail-text"><span className="pulse-dot"></span>Available for internship and freelance projects</h5>
+                <h5 className="hero-avail-text"><img src="assets/images/online.gif" alt="online" className="avail-icon" />Available for internship and freelance projects</h5>
                 <p className="hero-info-text">
                   ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
                 </p>

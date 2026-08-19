@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
+    "@lottiefiles/dotlottie-react": "^0.19.15",
     "@tailwindcss/postcss": "^4.3.3",
     "@tsparticles/react": "^4.3.2",
     "@tsparticles/slim": "^4.3.2",
