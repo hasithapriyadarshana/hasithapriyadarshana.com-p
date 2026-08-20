@@ -1,6 +1,9 @@
 
 "use client"
 import React, { useState } from 'react'
+import dynamic from 'next/dynamic'
+
+const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), { ssr: false })
 
 export default function ContactArea() {
 
@@ -9,10 +12,40 @@ export default function ContactArea() {
   const [service, setService] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', { name, email, service, subject, message });
+
+    if (!captchaToken) {
+      alert('Please complete the reCAPTCHA.');
+      return;
+    }
+
+    setStatus('sending');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, service, subject, message, captchaToken }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setName('');
+        setEmail('');
+        setService('');
+        setSubject('');
+        setMessage('');
+        setCaptchaToken(null);
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
   };
 
 
@@ -175,16 +208,24 @@ export default function ContactArea() {
                       </div>
                     </div>
                     <div className="col-md-12">
-                      <div className="form-group mb-0">
-                        <button type="submit" className="theme-btn">
-                          Send Message <i className="ri-mail-line"></i>
+                      <div className="form-group mb-0" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <ReCAPTCHA
+                          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                          onChange={(token) => setCaptchaToken(token)}
+                        />
+                        <button type="submit" className="theme-btn" disabled={status === 'sending'}>
+                          {status === 'sending' ? 'Sending...' : 'Send Message'} <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
                       </div>
                     </div>
                     <div className="col-md-12 text-center">
-                      <p className="input-success">We have received your mail, We will get back to you soon!</p>
-                      <p className="input-error">Sorry, Message could not send! Please try again.</p>
+                      {status === 'success' && (
+                        <p className="input-success">We have received your mail, We will get back to you soon!</p>
+                      )}
+                      {status === 'error' && (
+                        <p className="input-error">Sorry, Message could not send! Please try again.</p>
+                      )}
                     </div>
                   </div>
                 </form>

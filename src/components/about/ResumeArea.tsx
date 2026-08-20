@@ -141,26 +141,31 @@ function TimelineProgress({ children }: { children: React.ReactNode }) {
     if (!timeline) return;
 
     const handleScroll = () => {
+      const line = timeline.querySelector(
+        ".timeline-line-progress",
+      ) as HTMLElement;
+
+      const windowHeight = window.innerHeight;
+
       const items = timeline.querySelectorAll(".timeline-item");
+      const itemRects: DOMRect[] = [];
       items.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
-        if (rect.top < windowHeight * 0.8) {
+        itemRects.push(item.getBoundingClientRect());
+      });
+
+      const timelineRect = line ? timeline.getBoundingClientRect() : null;
+
+      items.forEach((item, i) => {
+        if (itemRects[i].top < windowHeight * 0.8) {
           item.classList.add("timeline-item-visible");
         }
       });
 
-      const line = timeline.querySelector(
-        ".timeline-line-progress",
-      ) as HTMLElement;
-      if (!line) return;
-      const timelineRect = timeline.getBoundingClientRect();
-      const timelineTop = timelineRect.top;
-      const timelineHeight = timelineRect.height;
-      const windowHeight = window.innerHeight;
-      const scrolled = windowHeight * 0.75 - timelineTop;
-      const progress = Math.min(Math.max(scrolled / timelineHeight, 0), 1);
-      line.style.height = `${progress * 100}%`;
+      if (line && timelineRect) {
+        const scrolled = windowHeight * 0.75 - timelineRect.top;
+        const progress = Math.min(Math.max(scrolled / timelineRect.height, 0), 1);
+        line.style.height = `${progress * 100}%`;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
