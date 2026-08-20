@@ -5,7 +5,7 @@ const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "chathasitha@gmail.com";
 const SITE_URL = "https://hasithapriyadarshana.com";
-const LOGO_URL = `${SITE_URL}/assets/images/logo.png`;
+const LOGO_URL = `${SITE_URL}/favicon.ico`;
 
 async function verifyCaptcha(token: string): Promise<boolean> {
   const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
@@ -85,18 +85,21 @@ export async function POST(req: NextRequest) {
       ? `<tr><td style="padding:10px 0;color:#888;font-weight:500;width:120px;font-family:'Poppins',sans-serif;font-size:13px;">Service</td><td style="padding:10px 0;color:#e4e4df;font-family:'Poppins',sans-serif;font-size:14px;">${service}</td></tr>`
       : "";
 
+    const emailFonts = `<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />`;
+
     const notificationHtml = `
       <!DOCTYPE html>
       <html>
-      <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+      <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${emailFonts}</head>
       <body style="margin:0;padding:0;background-color:#0a0a0a;font-family:'Poppins',sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0a;padding:40px 0;">
           <tr><td align="center">
             <table width="600" cellpadding="0" cellspacing="0" style="background-color:#070707;border-radius:16px;overflow:hidden;border:1px solid rgba(228,228,223,0.08);">
               <tr>
                 <td style="padding:35px 40px 30px;text-align:center;border-bottom:1px solid rgba(228,228,223,0.08);">
-                  <img src="${LOGO_URL}" alt="Hasitha Priyadarshana" width="150" style="display:block;margin:0 auto 16px;" />
-                  <h1 style="margin:0;color:#e4e4df;font-size:18px;font-weight:500;font-family:'Poppins',sans-serif;letter-spacing:0.5px;">New Contact Form Submission</h1>
+                  <img src="${LOGO_URL}" alt="Hasitha Priyadarshana" width="48" height="48" style="display:block;margin:0 auto 18px;border-radius:10px;" />
+                  <h1 style="margin:0;color:#e4e4df;font-size:20px;font-weight:600;font-family:'Oswald',sans-serif;letter-spacing:1px;text-transform:uppercase;">New Contact Form Submission</h1>
+                  <p style="margin:8px 0 0;color:#666;font-size:12px;font-family:'Poppins',sans-serif;letter-spacing:0.5px;">hasithapriyadarshana.com</p>
                 </td>
               </tr>
               <tr>
@@ -109,7 +112,7 @@ export async function POST(req: NextRequest) {
                     <tr><td style="padding:10px 0;color:#888;font-weight:500;font-family:'Poppins',sans-serif;font-size:13px;">Subject</td><td style="padding:10px 0;color:#e4e4df;font-family:'Poppins',sans-serif;font-size:14px;">${subject}</td></tr>
                   </table>
                   <div style="margin-top:24px;">
-                    <p style="margin:0 0 10px;color:#888;font-weight:500;font-family:'Poppins',sans-serif;font-size:13px;text-transform:uppercase;letter-spacing:1px;">Message</p>
+                    <p style="margin:0 0 10px;color:#888;font-weight:500;font-family:'Oswald',sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;">Message</p>
                     <div style="background-color:rgba(228,228,223,0.04);border-left:3px solid #e4e4df;padding:18px 22px;border-radius:0 8px 8px 0;color:#ccc;line-height:1.8;font-size:14px;font-family:'Poppins',sans-serif;">
                       ${message.replace(/\n/g, "<br/>")}
                     </div>
@@ -134,29 +137,33 @@ export async function POST(req: NextRequest) {
     const confirmationHtml = `
       <!DOCTYPE html>
       <html>
-      <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+      <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">${emailFonts}</head>
       <body style="margin:0;padding:0;background-color:#0a0a0a;font-family:'Poppins',sans-serif;">
         <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0a0a0a;padding:40px 0;">
           <tr><td align="center">
             <table width="600" cellpadding="0" cellspacing="0" style="background-color:#070707;border-radius:16px;overflow:hidden;border:1px solid rgba(228,228,223,0.08);">
               <tr>
                 <td style="padding:35px 40px 30px;text-align:center;border-bottom:1px solid rgba(228,228,223,0.08);">
-                  <img src="${LOGO_URL}" alt="Hasitha Priyadarshana" width="150" style="display:block;margin:0 auto 16px;" />
-                  <h1 style="margin:0;color:#e4e4df;font-size:22px;font-weight:600;font-family:'Poppins',sans-serif;">Thank You, ${name.split(" ")[0]}!</h1>
+                  <img src="${LOGO_URL}" alt="Hasitha Priyadarshana" width="48" height="48" style="display:block;margin:0 auto 18px;border-radius:10px;" />
+                  <h1 style="margin:0;color:#e4e4df;font-size:24px;font-weight:600;font-family:'Oswald',sans-serif;letter-spacing:0.5px;text-transform:uppercase;">Thank You, ${name.split(" ")[0]}!</h1>
                 </td>
               </tr>
               <tr>
                 <td style="padding:35px 40px;text-align:center;">
                   <div style="width:64px;height:64px;background:linear-gradient(135deg,#e4e4df,#c0c0bc);border-radius:50%;margin:0 auto 24px;line-height:64px;font-size:28px;color:#070707;">&#10003;</div>
-                  <h2 style="margin:0 0 14px;color:#e4e4df;font-size:20px;font-family:'Poppins',sans-serif;font-weight:600;">Message Received!</h2>
+                  <h2 style="margin:0 0 14px;color:#e4e4df;font-size:20px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Message Received!</h2>
                   <p style="margin:0 0 24px;color:#888;line-height:1.8;font-size:15px;font-family:'Poppins',sans-serif;">
                     Thank you for reaching out. I have received your message and will get back to you within <strong style="color:#e4e4df;">24-48 hours</strong>.
                   </p>
                   <div style="background-color:rgba(228,228,223,0.04);border-radius:10px;padding:22px;margin:24px 0;text-align:left;border:1px solid rgba(228,228,223,0.06);">
-                    <p style="margin:0 0 12px;color:#888;font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:1px;font-family:'Poppins',sans-serif;">Your Submission</p>
+                    <p style="margin:0 0 12px;color:#888;font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:1.5px;font-family:'Oswald',sans-serif;">Your Submission</p>
                     <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr><td style="padding:4px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;width:80px;">Subject</td><td style="padding:4px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${subject}</td></tr>
-                      <tr><td style="padding:4px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;">Service</td><td style="padding:4px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${service || "Not specified"}</td></tr>
+                      <tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;width:90px;">Name</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${name}</td></tr>
+                      <tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;">Email</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${email}</td></tr>
+                      ${phone ? `<tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;">Phone</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${phone}</td></tr>` : ""}
+                      ${service ? `<tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;">Service</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${service}</td></tr>` : ""}
+                      <tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;">Subject</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;">${subject}</td></tr>
+                      <tr><td style="padding:6px 0;color:#888;font-size:13px;font-family:'Poppins',sans-serif;vertical-align:top;">Message</td><td style="padding:6px 0;color:#e4e4df;font-size:14px;font-family:'Poppins',sans-serif;font-weight:500;line-height:1.6;">${message.replace(/\n/g, "<br/>")}</td></tr>
                     </table>
                   </div>
                   <p style="margin:24px 0 0;color:#555;font-size:13px;font-family:'Poppins',sans-serif;line-height:1.7;">
