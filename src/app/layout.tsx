@@ -1,6 +1,7 @@
 import "../styles/index.css";
 
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import Preloader from "@/components/common/Preloader";
 import DisableRightClick from "@/components/common/DisableRightClick";
 
@@ -137,6 +138,7 @@ export default function RootLayout({
         <Preloader />
         <DisableRightClick />
         {children}
+        <Analytics />
       </body>
     </html>
   );

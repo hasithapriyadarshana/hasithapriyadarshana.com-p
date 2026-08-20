@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
+const RESEND_API_KEY = process.env.RESEND_API_KEY;
+const CONTACT_EMAIL = "chathasitha@gmail.com";
 
 async function verifyCaptcha(token: string): Promise<boolean> {
   const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
@@ -24,7 +27,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!RECAPTCHA_SECRET_KEY) {
+    if (!RECAPTCHA_SECRET_KEY || !RESEND_API_KEY) {
       return NextResponse.json(
         { message: "Server configuration error." },
         { status: 500 },
@@ -39,14 +42,22 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // TODO: Send the email here (e.g. via Resend, SendGrid, Nodemailer)
-    // For now, log and return success
-    console.log("Contact form submission:", {
-      name,
-      email,
-      service,
-      subject,
-      message,
+    const resend = new Resend(RESEND_API_KEY);
+
+    await resend.emails.send({
+      from: "Portfolio Contact Form <onboarding@resend.dev>",
+      to: CONTACT_EMAIL,
+      subject: `[Portfolio] ${subject}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Service:</strong> ${service || "Not specified"}</p>
+        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br/>")}</p>
+      `,
+      replyTo: email,
     });
 
     return NextResponse.json(
