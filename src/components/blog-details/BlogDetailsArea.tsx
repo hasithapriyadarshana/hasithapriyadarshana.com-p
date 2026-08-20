@@ -22,7 +22,7 @@ export default function BlogDetailsArea({
                   <div className="col-lg-8">
                     <div className="postbox__main-wrapper">
                       <div className="postbox__thumb w-img mb-30">
-                        <img src={`/${post.image}`} alt={post.title} />
+                        <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
                       </div>
                       <div className="postbox__meta">
                         <span>
@@ -76,6 +76,7 @@ export default function BlogDetailsArea({
                                 href={`https://www.linkedin.com/sharing/share-offsite/?url=https://hasithapriyadarshana.com/blog/${post.slug}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Share on LinkedIn"
                               >
                                 <i className="fa-brands fa-linkedin-in"></i>
                               </a>
@@ -83,6 +84,7 @@ export default function BlogDetailsArea({
                                 href={`https://twitter.com/intent/tweet?url=https://hasithapriyadarshana.com/blog/${post.slug}&text=${encodeURIComponent(post.title)}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Share on Twitter"
                               >
                                 <i className="fab fa-twitter"></i>
                               </a>
@@ -90,6 +92,7 @@ export default function BlogDetailsArea({
                                 href={`https://www.facebook.com/sharer/sharer.php?u=https://hasithapriyadarshana.com/blog/${post.slug}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-label="Share on Facebook"
                               >
                                 <i className="fab fa-facebook-f"></i>
                               </a>
@@ -119,6 +122,7 @@ export default function BlogDetailsArea({
                                   href="https://linkedin.com"
                                   target="_blank"
                                   rel="noopener noreferrer"
+                                  aria-label="LinkedIn"
                                 >
                                   <i className="fa-brands fa-linkedin-in"></i>
                                 </a>
@@ -126,10 +130,11 @@ export default function BlogDetailsArea({
                                   href="https://github.com"
                                   target="_blank"
                                   rel="noopener noreferrer"
+                                  aria-label="GitHub"
                                 >
                                   <i className="fa-brands fa-github"></i>
                                 </a>
-                                <a href="mailto:chathasitha@gmail.com">
+                                <a href="mailto:chathasitha@gmail.com" aria-label="Send email">
                                   <i className="fa-solid fa-envelope"></i>
                                 </a>
                               </div>
@@ -154,6 +159,9 @@ export default function BlogDetailsArea({
                                       <img
                                         src={`/${rp.thumbnail}`}
                                         alt={rp.title}
+                                        width={100}
+                                        height={80}
+                                        loading="lazy"
                                       />
                                     </Link>
                                   </div>

@@ -20,7 +20,7 @@ export default function HeaderOne() {
                 <div className="col-xl-2 col-lg-2 col-md-6 col-6 col-sm-3">
                   <div className="logo-area">
                     <div className="logo">
-                      <Link href="/"><img src="assets/images/Hasitha.svg" alt="" /></Link>
+                      <Link href="/" aria-label="Hasitha Priyadarshana - Home"><img src="assets/images/Hasitha.svg" alt="Hasitha Priyadarshana Logo" width={150} height={59} /></Link>
                     </div>
                   </div>
                 </div>
@@ -31,7 +31,7 @@ export default function HeaderOne() {
                     </nav>
                   </div>
                   <div className="side-menu-icon d-lg-none text-end">
-                    <a style={{ cursor: "pointer" }} onClick={() => setOpen(!open)} className="info-toggle-btn f-right sidebar-toggle-btn"><i className="fal fa-bars"></i></a>
+                    <button aria-label="Open menu" onClick={() => setOpen(!open)} className="info-toggle-btn f-right sidebar-toggle-btn"><i className="fal fa-bars"></i></button>
                   </div>
                 </div>
               </div>

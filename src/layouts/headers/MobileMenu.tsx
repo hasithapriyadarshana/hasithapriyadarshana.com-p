@@ -34,9 +34,9 @@ export default function MobileMenu() {
                         <li key={index}><Link href={sub_menu.link}>{sub_menu.title}</Link></li>
                       ))}
                     </ul>
-                    <a className={`mean-expand ${navTitle === item.title ? "mean-clicked" : ""}`}
+                    <button aria-label={`Expand ${item.title} menu`} className={`mean-expand ${navTitle === item.title ? "mean-clicked" : ""}`}
                       onClick={() => openMobileMenu(item.title)}
-                      style={{ fontSize: "18px", cursor: "pointer" }}><i className="fal fa-plus"></i></a>
+                      style={{ fontSize: "18px", cursor: "pointer" }}><i className="fal fa-plus"></i></button>
                   </>
                 }
               </li>

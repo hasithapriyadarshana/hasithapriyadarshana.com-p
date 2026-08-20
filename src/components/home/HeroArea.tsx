@@ -58,20 +58,20 @@ export default function HeroArea() {
                 <div className="flex justify-center">
                 <Dock direction="middle" className="mb-2">
                   <DockIcon>
-                    <a href="https://github.com/hasithapriyadarshana" target="_blank" rel="noopener noreferrer"><i className="ri-github-line text-2xl"></i></a>
+                    <a href="https://github.com/hasithapriyadarshana" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i className="ri-github-line text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="https://www.linkedin.com/in/hasithapriyadarshana/" target="_blank" rel="noopener noreferrer"><i className="ri-linkedin-fill text-2xl"></i></a>
+                    <a href="https://www.linkedin.com/in/hasithapriyadarshana/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><i className="ri-linkedin-fill text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="https://credly.com" target="_blank" rel="noopener noreferrer"><i className="ri-award-line text-2xl"></i></a>
+                    <a href="https://credly.com" target="_blank" rel="noopener noreferrer" aria-label="Credly certifications"><i className="ri-award-line text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="mailto:chathasitha@gmail.com"><i className="ri-mail-line text-2xl"></i></a>
+                    <a href="mailto:chathasitha@gmail.com" aria-label="Send email"><i className="ri-mail-line text-2xl"></i></a>
                   </DockIcon>
                 </Dock>
                 </div>
-                <h5 className="hero-avail-text"><img src="assets/images/online.gif" alt="online" className="avail-icon" />Available for internship and freelance projects</h5>
+                <p className="hero-avail-text">                <img src="assets/images/online.gif" alt="online" className="avail-icon" width={30} height={30} />Available for internship and freelance projects</p>
                 <p className="hero-info-text">
                   ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
                 </p>
@@ -79,7 +79,7 @@ export default function HeroArea() {
             </div>
             <div className="col-lg-6">
               <div className="hero-image" onClick={handleImageClick} style={{ cursor: "pointer" }}>
-                <img src="assets/images/about/me.svg" alt="" />
+                <img src="assets/images/about/me.svg" alt="Hasitha Priyadarshana — Network Technology & Web Developer" width={640} height={788} fetchPriority="high" />
                 <BorderBeam duration={6} size={400} className="from-transparent via-red-500 to-transparent" />
                 <BorderBeam duration={6} delay={3} size={400} borderWidth={2} className="from-transparent via-blue-500 to-transparent" />
               </div>

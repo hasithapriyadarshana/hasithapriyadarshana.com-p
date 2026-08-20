@@ -20,7 +20,7 @@ export default function PostboxArea() {
                   <article key={post.id} className="postbox__item format-image mb-50 transition-3">
                     <div className="postbox__thumb w-img">
                       <Link href={`/blog/${post.slug}`}>
-                        <img src={`/${post.image}`} alt={post.title} />
+                        <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
                       </Link>
                     </div>
                     <div className="postbox__content">
@@ -42,7 +42,7 @@ export default function PostboxArea() {
                         <p>{post.excerpt}</p>
                       </div>
                       <div className="postbox__read-more">
-                        <Link href={`/blog/${post.slug}`} className="theme-btn">Read more</Link>
+                         <Link href={`/blog/${post.slug}`} className="theme-btn" aria-label={`Read more about ${post.title}`}>Read more</Link>
                       </div>
                     </div>
                   </article>
@@ -58,9 +58,9 @@ export default function PostboxArea() {
                         <h3 className="sidebar__author-title">Hasitha Priyadarshana</h3>
                         <p>Network Technology undergraduate, web developer, and founder of HyperX Innovations.</p>
                         <div className="sidebar__author-social d-flex align-items-center justify-content-center">
-                          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin-in"></i></a>
-                          <a href="https://github.com" target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-github"></i></a>
-                          <a href="mailto:chathasitha@gmail.com"><i className="fa-solid fa-envelope"></i></a>
+                           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fa-brands fa-linkedin-in"></i></a>
+                          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fa-brands fa-github"></i></a>
+                          <a href="mailto:chathasitha@gmail.com" aria-label="Send email"><i className="fa-solid fa-envelope"></i></a>
                         </div>
                       </div>
                     </div>
@@ -73,7 +73,7 @@ export default function PostboxArea() {
                       {recentPosts.map((rp) => (
                         <div key={rp.id} className="rc__post d-flex align-items-center">
                           <div className="rc__post-thumb">
-                            <Link href={`/blog/${rp.slug}`}><img src={`/${rp.thumbnail}`} alt={rp.title} /></Link>
+                            <Link href={`/blog/${rp.slug}`}><img src={`/${rp.thumbnail}`} alt={rp.title} width={100} height={80} loading="lazy" /></Link>
                           </div>
                           <div className="rc__post-content">
                             <h3 className="rc__post-title">

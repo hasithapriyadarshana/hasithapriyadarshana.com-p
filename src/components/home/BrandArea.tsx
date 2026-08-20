@@ -47,6 +47,9 @@ export default function BrandArea() {
                         key={logo.id}
                         src={logo.src}
                         alt="Company"
+                        width={100}
+                        height={40}
+                        loading="lazy"
                       />
                     ))}
                   </div>

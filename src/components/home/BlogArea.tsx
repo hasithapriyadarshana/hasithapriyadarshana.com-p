@@ -24,7 +24,7 @@ export default function BlogArea() {
               <div className="col-lg-6">
                 <div className="blog-post-img">
                   <Link href={`/blog/${post.slug}`}>
-                    <img src={`/${post.image}`} alt={post.title} />
+                    <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
                   </Link>
                   <div className="blog-post-category">
                     <a href="#">{post.category}</a>
@@ -35,7 +35,7 @@ export default function BlogArea() {
                 <div className="blog-post-caption">
                   <h3>Posted on {post.date}</h3>
                   <h2><Link className="link-decoration" href={`/blog/${post.slug}`}>{post.title}</Link></h2>
-                  <Link className="theme-btn theme-btn-two" href={`/blog/${post.slug}`}>Read more <i className="ri-arrow-right-line"></i></Link>
+                   <Link className="theme-btn theme-btn-two" href={`/blog/${post.slug}`} aria-label={`Read more about ${post.title}`}>Read more <i className="ri-arrow-right-line"></i></Link>
                 </div>
               </div>
             </div>

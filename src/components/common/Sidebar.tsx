@@ -8,7 +8,7 @@ export default function Sidebar({ open, setOpen }: any) {
       <div className={`sidebar__area ${open ? 'sidebar-opened' : ''}`}>
         <div className="sidebar__wrapper">
           <div className="sidebar__close">
-            <button className="sidebar__close-btn" id="sidebar__close-btn" onClick={() => setOpen(false)}>
+            <button className="sidebar__close-btn" id="sidebar__close-btn" aria-label="Close menu" onClick={() => setOpen(false)}>
               <i className="fal fa-times"></i>
             </button>
           </div>

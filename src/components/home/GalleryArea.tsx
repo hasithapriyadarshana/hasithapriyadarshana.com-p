@@ -71,7 +71,7 @@ export default function GalleryArea() {
         <div className="gallery-scroller" data-direction="left" data-speed="slow">
           <div className="gallery-scroller__inner">
             {images.map((img) => (
-              <img key={img.id} src={img.src} alt="hasithapriyadarshana" />
+              <img key={img.id} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} loading="lazy" />
             ))}
           </div>
         </div>
@@ -79,7 +79,7 @@ export default function GalleryArea() {
         <div className="gallery-scroller" data-direction="right" data-speed="slow">
           <div className="gallery-scroller__inner">
             {[...images].reverse().map((img) => (
-              <img key={`r-${img.id}`} src={img.src} alt="hasithapriyadarshana" />
+              <img key={`r-${img.id}`} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} loading="lazy" />
             ))}
           </div>
         </div>
