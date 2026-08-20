@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const CONTACT_EMAIL = "chathasitha@gmail.com";
+const CONTACT_EMAIL = process.env.CONTACT_EMAIL || "chathasitha@gmail.com";
 
 async function verifyCaptcha(token: string): Promise<boolean> {
   const res = await fetch("https://www.google.com/recaptcha/api/siteverify", {
@@ -18,18 +18,49 @@ async function verifyCaptcha(token: string): Promise<boolean> {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, service, subject, message, captchaToken } = body;
+    const { name, email, phone, service, subject, message, captchaToken } = body;
 
     if (!name || !email || !subject || !message || !captchaToken) {
       return NextResponse.json(
-        { message: "All fields are required." },
+        { message: "All required fields must be filled." },
         { status: 400 },
       );
     }
 
-    if (!RECAPTCHA_SECRET_KEY || !RESEND_API_KEY) {
+    if (name.trim().length < 2) {
+      return NextResponse.json(
+        { message: "Name must be at least 2 characters." },
+        { status: 400 },
+      );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { message: "Please enter a valid email address." },
+        { status: 400 },
+      );
+    }
+
+    if (message.trim().length < 10) {
+      return NextResponse.json(
+        { message: "Message must be at least 10 characters." },
+        { status: 400 },
+      );
+    }
+
+    if (!RECAPTCHA_SECRET_KEY) {
+      console.error("RECAPTCHA_SECRET_KEY is not set");
       return NextResponse.json(
         { message: "Server configuration error." },
+        { status: 500 },
+      );
+    }
+
+    if (!RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not set");
+      return NextResponse.json(
+        { message: "Email service not configured." },
         { status: 500 },
       );
     }
@@ -44,14 +75,19 @@ export async function POST(req: NextRequest) {
 
     const resend = new Resend(RESEND_API_KEY);
 
-    await resend.emails.send({
-      from: "Portfolio Contact Form <onboarding@resend.dev>",
+    const phoneHtml = phone
+      ? `<p><strong>Phone:</strong> ${phone}</p>`
+      : "";
+
+    const { error } = await resend.emails.send({
+      from: "Hasitha Portfolio <contact@hasithapriyadarshana.com>",
       to: CONTACT_EMAIL,
       subject: `[Portfolio] ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+        ${phoneHtml}
         <p><strong>Service:</strong> ${service || "Not specified"}</p>
         <p><strong>Subject:</strong> ${subject}</p>
         <p><strong>Message:</strong></p>
@@ -60,11 +96,20 @@ export async function POST(req: NextRequest) {
       replyTo: email,
     });
 
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json(
+        { message: "Failed to send email. Please try again." },
+        { status: 500 },
+      );
+    }
+
     return NextResponse.json(
       { message: "Message sent successfully!" },
       { status: 200 },
     );
-  } catch {
+  } catch (err) {
+    console.error("Contact API error:", err);
     return NextResponse.json(
       { message: "Something went wrong. Please try again." },
       { status: 500 },
