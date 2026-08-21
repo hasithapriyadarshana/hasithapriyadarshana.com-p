@@ -22,15 +22,7 @@ export default function Wrapper({ children }: any) {
   }, []);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const existing = ScrollSmoother.get();
-    if (existing) {
-      existing.wrapper("#smooth-wrapper");
-      existing.content("#smooth-content");
-      existing.effects(true);
-      existing.refresh();
-    } else {
+    if (typeof window !== "undefined") {
       ScrollSmoother.create({
         smooth: 1.35,
         effects: true,
