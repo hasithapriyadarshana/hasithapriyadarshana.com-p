@@ -1,6 +1,23 @@
 
 import React from 'react'
 
+const skills = [
+  { name: "Next.js", icon: "nextjs" },
+  { name: "React.js", icon: "reactjs" },
+  { name: "JavaScript & TypeScript", icon: "javascript-typescript" },
+  { name: "WordPress & WooCommerce", icon: "wordpress" },
+  { name: "Node.js & Express.js", icon: "nodejs-express" },
+  { name: "Networking & Network Security", icon: "networking-security" },
+  { name: "Cisco Networking", icon: "cisco-networking" },
+  { name: "FortiGate & Firewall Administration", icon: "fortinet" },
+  { name: "Git & GitHub", icon: "git-github" },
+  { name: "Docker & DevOps", icon: "docker-devops" },
+  { name: "AWS & Cloud Computing", icon: "amazonwebservices" },
+  { name: "UI/UX Design & Figma", icon: "figma" },
+];
+
+const delays = ["delay-0-2s", "delay-0-3s", "delay-0-4s", "delay-0-5s"];
+
 export default function SkillArea() {
   return (
     <>
@@ -18,54 +35,14 @@ export default function SkillArea() {
               <div className="col-lg-12">
                 <div className="skill-items-wrap">
                   <div className="row">
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-2s">
-                        <img src="assets/images/skills/skill1.png" alt="Figma" width={55} height={55} loading="lazy" />
-                        <h5>Figma</h5>
+                    {skills.map((skill, index) => (
+                      <div key={skill.name} className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
+                        <div className={`skill-item wow fadeInUp ${delays[index % delays.length]}`}>
+                          <img src={`assets/images/skills/${skill.icon}.svg`} alt={skill.name} width={55} height={55} loading="lazy" />
+                          <h5>{skill.name}</h5>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-3s">
-                        <img src="assets/images/skills/skill2.png" alt="Tailwind" width={55} height={55} loading="lazy" />
-                        <h5>Tailwand</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-4s">
-                        <img src="assets/images/skills/skill3.png" alt="Photoshop" width={55} height={55} loading="lazy" />
-                        <h5>Photoshop</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-5s">
-                        <img src="assets/images/skills/skill4.png" alt="WordPress" width={55} height={55} loading="lazy" />
-                        <h5>WordPress</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-2s">
-                        <img src="assets/images/skills/skill5.png" alt="Angular" width={55} height={55} loading="lazy" />
-                        <h5>Angular</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-3s">
-                        <img src="assets/images/skills/skill6.png" alt="Webflow" width={55} height={55} loading="lazy" />
-                        <h5>Webflow</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-4s">
-                        <img src="assets/images/skills/skill7.png" alt="Python" width={55} height={55} loading="lazy" />
-                        <h5>Python</h5>
-                      </div>
-                    </div>
-                    <div className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
-                      <div className="skill-item wow fadeInUp delay-0-5s">
-                        <img src="assets/images/skills/skill8.png" alt="Sketch" width={55} height={55} loading="lazy" />
-                        <h5>Sketch</h5>
-                      </div>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>

@@ -2,12 +2,6 @@
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react'
 
-import portfolio_img_2 from "@/assets/images/projects/work2.png";
-import portfolio_img_3 from "@/assets/images/projects/work3.png";
-import portfolio_img_4 from "@/assets/images/projects/work4.png";
-import portfolio_img_5 from "@/assets/images/projects/work7.png";
-import portfolio_img_6 from "@/assets/images/projects/work6.png";
-
 interface DataType {
   id: number;
   image?: StaticImageData;
@@ -24,8 +18,8 @@ const portfolio_data: DataType[] = [
     id: 1,
     imgPath: "assets/images/projects/Hasithapriyadarshana-portfolio.gif",
     title: "HasithaPriyadarshana.com",
-    desc: "A modern personal portfolio website built with Next.js, React, and TypeScript, featuring responsive design, smooth GSAP animations, interactive components, project showcases, galleries, and optimized media.",
-    category: "personal",
+    desc: "HasithaPriyadarshana.com is a modern portfolio website built with Next.js, React.js, and TypeScript. It showcases professional skills, projects, services, and achievements with responsive design, GSAP animations, interactive components, galleries, and optimized media. The project demonstrates expertise in modern frontend development, UI design, performance optimization, SEO, and personal branding.",
+    category: "university",
     github: "https://github.com/hasithapriyadarshana/my-portfolio-next",
     live: "https://hasithapriyadarshana.com",
   },
@@ -33,47 +27,47 @@ const portfolio_data: DataType[] = [
     id: 2,
     imgPath: "assets/images/projects/bismarklanka-hasithapriyadarshana.gif",
     title: "Bismark Lanka Engineering",
-    desc: "At Bismark Lanka Engineering, we take pride in being the leading provider of top-notch construction services, offering the best customized designs to suit our clients' unique needs. With over 18 years of experience in the industry.",
+    desc: "Bismark Lanka Engineering is a professional corporate website developed for a construction and engineering company. It showcases the company's services, expertise, customized designs, and industry experience through a clean responsive interface. The project focuses on professional branding, usability, responsive design, content organization, and creating a strong digital presence.",
     category: "freelance",
     live: "https://bismarklanka.lk/",
   },
   {
     id: 3,
-    image: portfolio_img_3,
+    imgPath: "assets/images/projects/bossconveynacong.gif",
     title: "B.O.S.S Conveyancing",
-    desc: "B.O.S.S Conveyancing (Buying Or Selling Statewide) is a professional conveyancing website designed for a trusted property settlement service based in St Albans, VIC. The website provides clear information about conveyancing services, helping clients confidently navigate the process of buying and selling property across Victoria.",
-    category: "personal",
-    live: "#",
+    desc: "B.O.S.S Conveyancing is a professional website for a property settlement service based in St Albans, Victoria. The website provides clear information about conveyancing services and property transactions through responsive layouts, intuitive navigation, and structured content. The project focuses on professional branding, user experience, accessibility, and effective service presentation.",
+    category: "freelance",
+    live: "https://bossconveyancing.com/",
   },
   {
     id: 4,
-    image: portfolio_img_4,
-    title: "Travel Trek",
-    desc: "Travel Trek is a modern travel website designed to help travelers discover exciting destinations, explore travel experiences, and plan memorable journeys. The website features a clean and responsive design with destination showcases, travel information, engaging visuals, and user-friendly navigation.",
-    category: "freelance",
-    live: "#",
+    imgPath: "assets/images/projects/courtx.gif",
+    title: "CourtX - Court Management System",
+    desc: "CourtX is a full-stack court management platform built with React.js, Node.js, Express.js, SQLite, and JWT authentication. It supports secure case filing, records management, hearing scheduling, authentication, and role-based access control. The project demonstrates practical skills in full-stack development, REST APIs, database integration, security, and application architecture.",
+    category: "university",
+    github: "https://github.com/Manula-Laksika/CourtX-frontend/",
+    live: "https://court-x-three.vercel.app/",
   },
   {
     id: 5,
-    image: portfolio_img_5,
+    imgPath: "assets/images/projects/alfriedaconveyancing.gif",
     title: "Alfrieda Conveyancing",
-    desc: "Alfrieda Conveyancing is a professional conveyancing website designed to provide clear and reliable property settlement services for clients buying or selling property. The website presents the company's services, expertise, and professional approach while providing an easy way for clients to learn more and get in touch.",
+    desc: "Alfrieda Conveyancing is a professional website developed to present property settlement services for clients buying or selling property. It features responsive layouts, clear service information, intuitive navigation, and contact sections. The project focuses on professional branding, user-friendly design, accessibility, and presenting business information effectively across desktop and mobile devices.",
     category: "freelance",
-    live: "#",
+    live: "https://alfrieda.com.au/",
   },
   {
     id: 6,
-    image: portfolio_img_6,
-    title: "Cambridge College of Linguistics & Education",
-    desc: "Cambridge College of Linguistics & Education is a modern educational website built to showcase Sri Lanka's premier language learning institution. The website provides information about language programmes, courses, educational services, and learning opportunities through a clean, responsive, and user-friendly design.",
+    imgPath: "assets/images/projects/carsnowrentals.gif",
+    title: "Cars Now Rentals",
+    desc: "Cars Now Rentals is a professional website developed for an accident management and vehicle rental service. It presents replacement vehicle services, accident support, and important customer information through a clean responsive interface. The project demonstrates skills in responsive web development, service-focused UX, content organization, professional branding, and business website development.",
     category: "freelance",
-    live: "#",
+    live: "https://carsnowrentals.com.au/",
   },
 ];
 
 const categories = [
   { key: "all", label: "All" },
-  { key: "personal", label: "Personal" },
   { key: "freelance", label: "Freelance" },
   { key: "university", label: "University" },
   { key: "networking", label: "Networking" },

@@ -2,28 +2,8 @@
 
 import Wrapper from "@/layouts/Wrapper";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function NotFound() {
-  const router = useRouter();
-  const [seconds, setSeconds] = useState(30);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds((prev) => {
-        if (prev <= 1) {
-          clearInterval(interval);
-          router.push("/");
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [router]);
-
   return (
     <Wrapper>
       <section
@@ -74,10 +54,6 @@ export default function NotFound() {
             Back to Home <i className="ri-home-line"></i>
           </Link>
         </div>
-        <p style={{ marginTop: "1.5rem", fontSize: "14px", color: "#999" }}>
-          Redirecting to homepage in{" "}
-          <strong style={{ color: "#1a1a2e" }}>{seconds}</strong>s
-        </p>
       </section>
     </Wrapper>
   );

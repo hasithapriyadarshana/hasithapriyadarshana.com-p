@@ -1750,6 +1750,13 @@ h2.about-pre-title {
     rotate: 45deg;
 }
 
+.service-item .portfolio-btn i {
+    position: static;
+    font-size: 14px;
+    color: inherit;
+    transition: none;
+}
+
 .service-item:hover .details-btn {
     color: var(--black-color);
     background: var(--primary-color);
@@ -1973,6 +1980,46 @@ ul.extra-skills li i {
     border-color: var(--main-color);
 }
 
+/* Animated Border Beam */
+@property --border-beam-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes border-beam-spin {
+    to {
+        --border-beam-angle: 360deg;
+    }
+}
+
+.timeline-item::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 16px;
+    padding: 1.5px;
+    background: conic-gradient(
+        from var(--border-beam-angle),
+        transparent 0deg,
+        transparent 280deg,
+        rgba(7, 7, 7, 0.9) 330deg,
+        transparent 360deg
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: border-beam-spin 4s linear infinite;
+}
+
+.timeline-item:hover::after {
+    opacity: 1;
+}
+
 .timeline-item:last-child {
     margin-bottom: 0;
 }
@@ -2005,7 +2052,7 @@ ul.extra-skills li i {
     background: transparent;
     display: inline-block;
     border-radius: 2em;
-    padding: 2px 8px;
+    padding: 0;
     font-size: 11px;
     font-weight: 500;
     color: #070707;
@@ -2018,8 +2065,8 @@ ul.extra-skills li i {
     color: var(--main-color);
     font-size: 22px;
     text-transform: uppercase;
-    margin-top: 15px;
-    margin-bottom: 8px;
+    margin-top: 8px;
+    margin-bottom: 4px;
     line-height: 1.3;
 }
 
@@ -2031,10 +2078,30 @@ ul.extra-skills li i {
 }
 
 .timeline-item p {
-    margin-top: 15px;
+    margin-top: 8px;
     margin-bottom: 0;
     color: rgb(119, 119, 125);
     line-height: 1.7;
+}
+
+.timeline-desc.desc-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.desc-toggle {
+    display: inline-block;
+    font-size: 16px;
+    color: var(--main-color);
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+.desc-toggle:hover {
+    text-decoration: underline;
 }
 
 /* Timeline Scroll Progress */
@@ -2630,6 +2697,21 @@ ul.extra-skills li i {
     display: inline-block;
 }
 
+.testimonial-item .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.testimonial-item .testi-author .author {
+    margin-bottom: 0;
+    flex-shrink: 0;
+}
+
+.testimonial-item .testi-author .testi-des h5 {
+    margin-top: 0;
+}
+
 .testimonial-item .author img {
     display: inline-block;
     border-radius: 50%;
@@ -2641,6 +2723,16 @@ ul.extra-skills li i {
 .testimonial-item .text {
     margin-bottom: 30px;
     color: rgb(119, 119, 125);
+}
+
+.testimonial-item .text:before {
+    content: "\201C";
+    display: block;
+    font-size: 20px;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--main-color);
+    margin-bottom: 10px;
 }
 
 .testimonial-item .testi-des h5 {
@@ -4186,4 +4278,8 @@ ul.blog_pagination li a:hover {
         opacity: 0;
         pointer-events: none;
     }
+}
+/* faster entrance animations for snappier page loads */
+.wow.animated {
+    animation-duration: 0.5s;
 }

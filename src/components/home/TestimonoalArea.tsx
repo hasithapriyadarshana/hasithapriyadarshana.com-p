@@ -15,12 +15,6 @@ export default function TestimonoalArea() {
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <div className="testimonial-item wow fadeInUp delay-0-2s">
-                <div className="author">
-                  <img
-                    src="assets/images/testimonials/author1.svg"
-                    alt="Author"
-                  />
-                </div>
                 <div className="text">
                   Hasitha is a Superstar! He already made me like a celebrity
                   author. Working with him was amazing because; He's very
@@ -29,20 +23,22 @@ export default function TestimonoalArea() {
                   the things instantly. Apart from profession, he has a friendly
                   and flexible nature. Thank you so much Hasitha!
                 </div>
-                <div className="testi-des">
-                  <h5>Alex D Rox</h5>
-                  <span>Authour @ India</span>
+                <div className="testi-author">
+                  <div className="author">
+                    <img
+                      src="assets/images/testimonials/author1.svg"
+                      alt="Alex D Rox"
+                    />
+                  </div>
+                  <div className="testi-des">
+                    <h5>Alex D Rox</h5>
+                    <span>Authour @ India</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-6 col-md-6">
               <div className="testimonial-item wow fadeInUp delay-0-4s">
-                <div className="author">
-                  <img
-                    src="assets/images/testimonials/author1.svg"
-                    alt="Author"
-                  />
-                </div>
                 <div className="text">
                   Hasitha exhibited professionalism throughout the project,
                   delivering on time and within the agreed-upon budget. Their
@@ -50,20 +46,22 @@ export default function TestimonoalArea() {
                   functional and aesthetically pleasing website that perfectly
                   encapsulates the essence of my business.
                 </div>
-                <div className="testi-des">
-                  <h5>Sumit</h5>
-                  <span>CEO @ Australia</span>
+                <div className="testi-author">
+                  <div className="author">
+                    <img
+                      src="assets/images/testimonials/author1.svg"
+                      alt="Sumit"
+                    />
+                  </div>
+                  <div className="testi-des">
+                    <h5>Sumit</h5>
+                    <span>CEO at Comsilo @ Australia</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="testimonial-item wow fadeInUp delay-0-6s">
-                <div className="author">
-                  <img
-                    src="assets/images/testimonials/author1.svg"
-                    alt="Author"
-                  />
-                </div>
                 <div className="text">
                   I thoroughly enjoyed collaborating with this individual. They
                   demonstrated exceptional honesty, cooperation, and talent
@@ -71,20 +69,22 @@ export default function TestimonoalArea() {
                   delivered outstanding results. I would definitely work with
                   them again. Many thanks for their dedication and expertise
                 </div>
-                <div className="testi-des">
-                  <h5>Michel</h5>
-                  <span>Businessman @ Italy</span>
+                <div className="testi-author">
+                  <div className="author">
+                    <img
+                      src="assets/images/testimonials/author1.svg"
+                      alt="Michel"
+                    />
+                  </div>
+                  <div className="testi-des">
+                    <h5>Michel</h5>
+                    <span>Businessman @ Italy</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="testimonial-item wow fadeInUp delay-0-8s">
-                <div className="author">
-                  <img
-                    src="assets/images/testimonials/author1.svg"
-                    alt="Author"
-                  />
-                </div>
                 <div className="text">
                   I've had the pleasure of working with Hasitha twice now, and
                   each time has been fantastic. This second experience was even
@@ -94,29 +94,42 @@ export default function TestimonoalArea() {
                   smooth and enjoyable. I will continue to use Hasitha for all
                   my website needs
                 </div>
-                <div className="testi-des">
-                  <h5>Numberspeople</h5>
-                  <span>Insurance Company @ USA</span>
+                <div className="testi-author">
+                  <div className="author">
+                    <img
+                      src="assets/images/testimonials/Jennifer Williams.svg"
+                      alt="Jennifer Williams"
+                    />
+                  </div>
+                  <div className="testi-des">
+                    <h5>Jennifer Williams</h5>
+                    <span>Founder @ Numberspeople @ USA</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div className="col-lg-4 col-md-6">
               <div className="testimonial-item wow fadeInUp delay-0-9s">
-                <div className="author">
-                  <img
-                    src="assets/images/testimonials/author1.svg"
-                    alt="Author"
-                  />
-                </div>
                 <div className="text">
-                  Hasitha is always my first option whenever I work on one of my
-                  projects, His professionalism, attention to detail, and
-                  communication are some of his best skills to help me manage my
-                  expectations every time we work together.
+                  I had an exceptional experience working with hasitha. he has
+                  deep knowledge and patience making the development process
+                  smooth. Communication was prompt, and he prioritized quality,
+                  going the extra mile to meet my requirements. He quickly
+                  grasped my vision and made valuable improvements to the
+                  website. A true professional whom I highly recommend for any
+                  WordPress projects.
                 </div>
-                <div className="testi-des">
-                  <h5>Mohomad Shehan</h5>
-                  <span>CEO OF Firebird Innovations @Sri Lanka</span>
+                <div className="testi-author">
+                  <div className="author">
+                    <img
+                      src="assets/images/testimonials/Mohomad Shehan.svg"
+                      alt="Mohomad Shehan"
+                    />
+                  </div>
+                  <div className="testi-des">
+                    <h5>Mohomad Shehan</h5>
+                    <span>CEO OF Firebird Innovations @Sri Lanka</span>
+                  </div>
                 </div>
               </div>
             </div>

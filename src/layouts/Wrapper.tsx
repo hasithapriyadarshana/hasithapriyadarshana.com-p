@@ -18,16 +18,19 @@ export default function Wrapper({ children }: any) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // animation
-    const timer = setTimeout(() => {
-      animationCreate();
-    }, 100);
-
-    return () => clearTimeout(timer);
+    animationCreate();
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window === "undefined") return;
+
+    const existing = ScrollSmoother.get();
+    if (existing) {
+      existing.wrapper("#smooth-wrapper");
+      existing.content("#smooth-content");
+      existing.effects(true);
+      existing.refresh();
+    } else {
       ScrollSmoother.create({
         smooth: 1.35,
         effects: true,
