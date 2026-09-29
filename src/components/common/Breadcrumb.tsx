@@ -1,14 +1,23 @@
 
 import React from 'react'
 
-export default function Breadcrumb({ title, style_2, style_3, style_4 }: any) {
+type BreadcrumbProps = {
+  title: string;
+  style_2?: boolean;
+  style_3?: boolean;
+  style_4?: boolean;
+  compact?: boolean;
+};
+
+export default function Breadcrumb({ title, style_2, style_3, style_4, compact }: BreadcrumbProps) {
+  const blogClass = compact || style_4 ? " blog-font-poppins" : "";
   return (
     <>
-      <section className="single-page-hero-area">
+      <section className={`single-page-hero-area${compact ? " blog-article-hero" : ""}${blogClass}`}>
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-12">
-              <h2>{title}</h2>
+              <h2 style={{ fontFamily: '"Oswald", sans-serif' }}>{title}</h2>
               {style_2 &&
                 <p>A Collection of My Latest Works and Achievements: Discover the Projects that Define My Passion and Skills</p>
               }

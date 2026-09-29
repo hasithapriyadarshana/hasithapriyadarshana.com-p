@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), { ssr: false })
+const recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY?.trim()
 
 const countryCodes = [
   { code: "+94", country: "LK" },
@@ -105,11 +106,17 @@ export default function ContactArea() {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaRequired, setCaptchaRequired] = useState(false);
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [statusMessage, setStatusMessage] = useState('');
   const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
+    const isLocalDevelopment =
+      process.env.NODE_ENV === 'development' &&
+      ['localhost', '127.0.0.1', '::1'].includes(window.location.hostname);
+    setCaptchaRequired(!isLocalDevelopment);
+
     fetch('https://ipapi.co/json/')
       .then((res) => res.json())
       .then((data) => {
@@ -157,7 +164,7 @@ export default function ContactArea() {
       newErrors.message = 'Message must be at least 10 characters.';
     }
 
-    if (!captchaToken) {
+    if (captchaRequired && !captchaToken) {
       newErrors.captcha = 'Please complete the reCAPTCHA.';
     }
 
@@ -406,12 +413,22 @@ export default function ContactArea() {
                     </div>
                     <div className="col-md-12">
                       <div className="form-group mb-0" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                        <ReCAPTCHA
-                          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                          onChange={(token) => { setCaptchaToken(token); clearError('captcha'); }}
-                        />
+                        {!captchaRequired ? (
+                          <span className="captcha-local-note">
+                            reCAPTCHA is disabled for local development.
+                          </span>
+                        ) : recaptchaSiteKey ? (
+                          <ReCAPTCHA
+                            sitekey={recaptchaSiteKey}
+                            onChange={(token) => { setCaptchaToken(token); clearError('captcha'); }}
+                          />
+                        ) : (
+                          <span className="field-error">
+                            Contact form verification is temporarily unavailable.
+                          </span>
+                        )}
                         {errors.captcha && <span className="field-error">{errors.captcha}</span>}
-                        <button type="submit" className="theme-btn" disabled={status === 'sending'}>
+                        <button type="submit" className="theme-btn" disabled={status === 'sending' || (captchaRequired && !recaptchaSiteKey)}>
                           {status === 'sending' ? 'Sending...' : 'Send Message'} <i className="ri-mail-line"></i>
                         </button>
                         <div id="msgSubmit" className="hidden"></div>
@@ -443,6 +460,10 @@ export default function ContactArea() {
         }
         .error-input {
           border-color: #e74c3c !important;
+        }
+        .captcha-local-note {
+          color: #777;
+          font-size: 0.8rem;
         }
       `}</style>
     </>

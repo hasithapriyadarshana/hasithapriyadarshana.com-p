@@ -1,8 +1,9 @@
-import { blog_data } from "@/data/blog_data";
+import { getPublishedPosts } from "@/lib/blogs";
 import { MetadataRoute } from "next";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://hasithapriyadarshana.com";
+  const posts = await getPublishedPosts();
 
   const staticPages: MetadataRoute.Sitemap = [
     { url: base, lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
@@ -15,9 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/education`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
   ];
 
-  const blogPages: MetadataRoute.Sitemap = blog_data.map((post) => ({
+  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${base}/blog/${post.slug}`,
-    lastModified: new Date(),
+    lastModified: new Date(post.updatedAt || post.date),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));

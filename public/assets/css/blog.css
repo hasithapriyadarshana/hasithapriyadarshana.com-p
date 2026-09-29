@@ -5,6 +5,57 @@
 .blog-page-area{
   padding: 100px 0px;
 }
+.blog-empty-state {
+  padding: 70px 50px;
+  border: 1px solid #deded8;
+  background: #f7f6f1;
+}
+.blog-empty-state span {
+  color: #6f8d12;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+.blog-empty-state h3 {
+  margin: 12px 0;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+.blog-content h1 {
+  margin: 0 0 18px;
+  font-size: 40px;
+  line-height: 1.2;
+}
+.blog-content h2, .blog-content h3 {
+  margin: 34px 0 14px;
+}
+.blog-content ul, .blog-content ol {
+  margin: 0 0 22px 22px;
+}
+.blog-content li {
+  margin-bottom: 8px;
+  list-style: initial;
+}
+.blog-content blockquote {
+  margin: 28px 0;
+  padding: 8px 0 8px 24px;
+  border-left: 3px solid var(--primary-color);
+}
+.blog-content pre {
+  overflow-x: auto;
+  margin: 24px 0;
+  padding: 20px;
+  background: #1d211f;
+  color: #f4f4ee;
+}
+.blog-content code { font-family: Consolas, monospace; }
+.blog-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 24px 0;
+}
 .blog_sidebar__wrapper{
   padding-left: 40px;
 }
@@ -145,6 +196,32 @@
   }
 }
 
+.blog-font-poppins,
+.single-page-hero-area.blog-font-poppins h2,
+.postbox__area,
+.postbox__area h1,
+.postbox__area h2,
+.postbox__area h3,
+.postbox__area h4,
+.postbox__area h5,
+.postbox__area h6,
+.postbox__area p,
+.postbox__area a,
+.postbox__area span,
+.postbox__area button,
+.postbox__area input,
+.postbox__area textarea {
+  font-family: "Poppins", sans-serif;
+}
+
+.single-page-hero-area.blog-article-hero h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 40px;
+  line-height: 1.12;
+  font-weight: 500;
+  text-transform: none;
+}
+
 .postbox__meta {
   margin-bottom: 7px;
 }
@@ -224,7 +301,7 @@ p.postbox__meta-name {
 .postbox__meta span {
   font-family: var(--tp-ff-space);
   font-size: 14px;
-  color: var(--tp-text-1);
+  color: #000;
   margin-right: 30px;
   font-weight: 500;
   display: inline-block;
@@ -254,7 +331,7 @@ p.postbox__meta-name {
   stroke: var(--tp-common-black);
 }
 .postbox__meta span i {
-  color: var(--tp-common-black);
+  color: #000;
 }
 .postbox__meta span a:hover {
   color: var(--black-color);

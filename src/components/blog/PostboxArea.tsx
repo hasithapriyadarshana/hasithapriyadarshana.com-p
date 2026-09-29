@@ -1,13 +1,14 @@
 
-"use client"
 import React from 'react'
 import Link from 'next/link'
-import { blog_data, getAllCategories, getAllTags, getRecentBlogs } from '@/data/blog_data'
+import Image from 'next/image'
+import type { BlogPost } from '@/types/blog'
+import { formatBlogDate } from '@/lib/blogs'
 
-export default function PostboxArea() {
-  const categories = getAllCategories()
-  const tags = getAllTags()
-  const recentPosts = getRecentBlogs(3)
+export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
+  const categories = Array.from(new Set(posts.map((post) => post.category)))
+  const tags = Array.from(new Set(posts.flatMap((post) => post.tags)))
+  const recentPosts = posts.slice(0, 3)
 
   return (
     <>
@@ -16,23 +17,30 @@ export default function PostboxArea() {
           <div className="row">
             <div className="col-xxl-8 col-lg-8">
               <div className="postbox__wrapper">
-                {blog_data.map((post) => (
+                {posts.length === 0 && (
+                  <div className="blog-empty-state">
+                    <span>Journal</span>
+                    <h3>New articles are on the way.</h3>
+                    <p>Check back soon for writing on networking, security, and building for the web.</p>
+                  </div>
+                )}
+                {posts.map((post) => (
                   <article key={post.id} className="postbox__item format-image mb-50 transition-3">
                     <div className="postbox__thumb w-img">
                       <Link href={`/blog/${post.slug}`}>
-                        <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
+                        <Image src={post.image.startsWith('/') || post.image.startsWith('http') ? post.image : `/${post.image}`} alt={post.title} width={1024} height={590} unoptimized style={{ width: "100%", height: "auto" }} />
                       </Link>
                     </div>
                     <div className="postbox__content">
                       <div className="postbox__meta">
                         <span>
-                          <a href=""><i className="fa-light fa-user"></i>Hasitha Priyadarshana</a>
+                          <span><i className="fa-light fa-user"></i>Hasitha Priyadarshana</span>
                         </span>
                         <span>
-                          <a href=""><i className="fa-light fa-clock"></i>{post.date}</a>
+                          <span><i className="fa-light fa-clock"></i>{formatBlogDate(post.publishDate || post.date)}</span>
                         </span>
                         <span>
-                          <a href=""><i className="ri-folder-line"></i>{post.category}</a>
+                          <span><i className="ri-folder-line"></i>{post.category}</span>
                         </span>
                       </div>
                       <h3 className="postbox__title">
@@ -73,14 +81,14 @@ export default function PostboxArea() {
                       {recentPosts.map((rp) => (
                         <div key={rp.id} className="rc__post d-flex align-items-center">
                           <div className="rc__post-thumb">
-                            <Link href={`/blog/${rp.slug}`}><img src={`/${rp.thumbnail}`} alt={rp.title} width={100} height={80} loading="lazy" /></Link>
+                             <Link href={`/blog/${rp.slug}`}><Image src={rp.image.startsWith('/') || rp.image.startsWith('http') ? rp.image : `/${rp.image}`} alt={rp.title} width={100} height={80} unoptimized style={{ width: "100%", height: "auto" }} /></Link>
                           </div>
                           <div className="rc__post-content">
                             <h3 className="rc__post-title">
                               <Link href={`/blog/${rp.slug}`}>{rp.title}</Link>
                             </h3>
                             <div className="rc__meta">
-                              <span>{rp.date}</span>
+                               <span>{formatBlogDate(rp.publishDate || rp.date)}</span>
                             </div>
                           </div>
                         </div>

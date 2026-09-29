@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 
 import gallery_img_1 from "@/assets/images/carousel/hasitha-priyadarshana-1.webp";
 import gallery_img_2 from "@/assets/images/carousel/hasitha-priyadarshana-2.webp";
@@ -71,7 +72,7 @@ export default function GalleryArea() {
         <div className="gallery-scroller" data-direction="left" data-speed="slow">
           <div className="gallery-scroller__inner">
             {images.map((img) => (
-              <img key={img.id} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} loading="lazy" />
+              <Image key={img.id} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} />
             ))}
           </div>
         </div>
@@ -79,7 +80,7 @@ export default function GalleryArea() {
         <div className="gallery-scroller" data-direction="right" data-speed="slow">
           <div className="gallery-scroller__inner">
             {[...images].reverse().map((img) => (
-              <img key={`r-${img.id}`} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} loading="lazy" />
+              <Image key={`r-${img.id}`} src={img.src} alt={`Hasitha Priyadarshana — ${img.id}`} width={200} height={120} />
             ))}
           </div>
         </div>

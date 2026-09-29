@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Image from 'next/image'
 
 const skills = [
   { name: "Next.js", icon: "nextjs" },
@@ -38,7 +39,7 @@ export default function SkillArea() {
                     {skills.map((skill, index) => (
                       <div key={skill.name} className="col-xl-3 col-lg-4 col-md-3 col-sm-4 col-6">
                         <div className={`skill-item wow fadeInUp ${delays[index % delays.length]}`}>
-                          <img src={`assets/images/skills/${skill.icon}.svg`} alt={skill.name} width={55} height={55} loading="lazy" />
+                          <Image src={`/assets/images/skills/${skill.icon}.svg`} alt={skill.name} width={55} height={55} />
                           <h5>{skill.name}</h5>
                         </div>
                       </div>

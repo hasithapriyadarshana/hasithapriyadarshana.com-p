@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 interface TimelineDescProps {
   html: string;
@@ -176,7 +177,14 @@ function ProofImages({
     <div className="timeline-proofs">
       {proofs.map((src, i) => (
         <div key={i} className="timeline-proof-thumb">
-          <img src={src} alt={`${company} proof ${i + 1}`} />
+          <Image
+            src={src.startsWith("/") || src.startsWith("http") ? src : `/${src}`}
+            alt={`${company} proof ${i + 1}`}
+            width={200}
+            height={150}
+            unoptimized
+            style={{ width: "100%", height: "auto" }}
+          />
         </div>
       ))}
     </div>
@@ -252,7 +260,13 @@ export default function ResumeArea() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-item-inner">
                         <div className="timeline-logo">
-                          <img src={item.image} alt={item.company} />
+                          <Image
+                            src={item.image.startsWith("/") || item.image.startsWith("http") ? item.image : `/${item.image}`}
+                            alt={item.company}
+                            width={60}
+                            height={60}
+                            unoptimized
+                          />
                         </div>
                         <div className="timeline-content">
                           <h2>{item.title}</h2>
@@ -286,7 +300,13 @@ export default function ResumeArea() {
                       <div className="timeline-dot"></div>
                       <div className="timeline-item-inner">
                         <div className="timeline-logo">
-                          <img src={item.image} alt={item.company} />
+                          <Image
+                            src={item.image.startsWith("/") || item.image.startsWith("http") ? item.image : `/${item.image}`}
+                            alt={item.company}
+                            width={60}
+                            height={60}
+                            unoptimized
+                          />
                         </div>
                         <div className="timeline-content">
                           <h2>{item.title}</h2>
@@ -331,7 +351,13 @@ export default function ResumeArea() {
                         <div className="timeline-dot"></div>
                         <div className="timeline-item-inner">
                           <div className="timeline-logo">
-                            <img src={item.image} alt={item.company} />
+                            <Image
+                              src={item.image.startsWith("/") || item.image.startsWith("http") ? item.image : `/${item.image}`}
+                              alt={item.company}
+                              width={60}
+                              height={60}
+                              unoptimized
+                            />
                           </div>
                           <div className="timeline-content">
                             <h2>{item.title}</h2>
