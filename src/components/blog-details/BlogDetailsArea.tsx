@@ -161,9 +161,9 @@ export default function BlogDetailsArea({
                                       <Image
                                         src={rp.image.startsWith("/") || rp.image.startsWith("http") ? rp.image : `/${rp.image}`}
                                         unoptimized
-                                        style={{ width: "100%", height: "auto" }}
+                                        style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }}
                                         alt={rp.title}
-                                        width={100}
+                                        width={80}
                                         height={80}
                                         loading="lazy"
                                       />

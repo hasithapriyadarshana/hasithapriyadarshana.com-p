@@ -81,7 +81,16 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                       {recentPosts.map((rp) => (
                         <div key={rp.id} className="rc__post d-flex align-items-center">
                           <div className="rc__post-thumb">
-                             <Link href={`/blog/${rp.slug}`}><Image src={rp.image.startsWith('/') || rp.image.startsWith('http') ? rp.image : `/${rp.image}`} alt={rp.title} width={100} height={80} unoptimized style={{ width: "100%", height: "auto" }} /></Link>
+                             <Link href={`/blog/${rp.slug}`}>
+                               <Image 
+                                 src={rp.image.startsWith('/') || rp.image.startsWith('http') ? rp.image : `/${rp.image}`} 
+                                 alt={rp.title} 
+                                 width={80} 
+                                 height={80} 
+                                 unoptimized 
+                                 style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }} 
+                               />
+                             </Link>
                           </div>
                           <div className="rc__post-content">
                             <h3 className="rc__post-title">
