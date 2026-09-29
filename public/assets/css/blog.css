@@ -1230,18 +1230,24 @@ p.postbox__meta-name {
   margin-bottom: 0;
 }
 .rc__post-thumb {
+  width: 80px;
+  height: 80px;
+  min-width: 80px;
+  border-radius: 8px;
   overflow: hidden;
-  margin-right: 25px;
-  flex: 0 0 auto;
+  margin-right: 18px;
+  flex: 0 0 80px;
+  position: relative;
 }
 [dir=rtl] .rc__post-thumb {
   margin-right: 0;
-  margin-left: 25px;
+  margin-left: 18px;
 }
 .rc__post-thumb img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 8px;
 }
 .rc__post-title {
   font-size: 16px;
