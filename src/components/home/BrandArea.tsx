@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
+import Image from "next/image";
 
 const logos = Array.from({ length: 16 }, (_, i) => ({
   id: i + 1,
@@ -43,13 +44,12 @@ export default function BrandArea() {
                 >
                   <div className="scroller__inner">
                     {logos.map((logo) => (
-                      <img
+                      <Image
                         key={logo.id}
-                        src={logo.src}
+                        src={logo.src.startsWith("/") ? logo.src : `/${logo.src}`}
                         alt="Company"
                         width={100}
                         height={40}
-                        loading="lazy"
                       />
                     ))}
                   </div>

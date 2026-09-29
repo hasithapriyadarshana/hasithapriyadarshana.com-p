@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function TestimonoalArea() {
   return (
@@ -25,9 +26,11 @@ export default function TestimonoalArea() {
                 </div>
                 <div className="testi-author">
                   <div className="author">
-                    <img
-                      src="assets/images/testimonials/author1.svg"
+                    <Image
+                      src="/assets/images/testimonials/author1.svg"
                       alt="Alex D Rox"
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div className="testi-des">
@@ -48,9 +51,11 @@ export default function TestimonoalArea() {
                 </div>
                 <div className="testi-author">
                   <div className="author">
-                    <img
-                      src="assets/images/testimonials/author1.svg"
+                    <Image
+                      src="/assets/images/testimonials/author1.svg"
                       alt="Sumit"
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div className="testi-des">
@@ -71,9 +76,11 @@ export default function TestimonoalArea() {
                 </div>
                 <div className="testi-author">
                   <div className="author">
-                    <img
-                      src="assets/images/testimonials/author1.svg"
+                    <Image
+                      src="/assets/images/testimonials/author1.svg"
                       alt="Michel"
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div className="testi-des">
@@ -96,9 +103,11 @@ export default function TestimonoalArea() {
                 </div>
                 <div className="testi-author">
                   <div className="author">
-                    <img
-                      src="assets/images/testimonials/Jennifer Williams.svg"
+                    <Image
+                      src="/assets/images/testimonials/Jennifer Williams.svg"
                       alt="Jennifer Williams"
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div className="testi-des">
@@ -121,9 +130,11 @@ export default function TestimonoalArea() {
                 </div>
                 <div className="testi-author">
                   <div className="author">
-                    <img
-                      src="assets/images/testimonials/Mohomad Shehan.svg"
+                    <Image
+                      src="/assets/images/testimonials/Mohomad Shehan.svg"
                       alt="Mohomad Shehan"
+                      width={60}
+                      height={60}
                     />
                   </div>
                   <div className="testi-des">

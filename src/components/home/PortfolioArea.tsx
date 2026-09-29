@@ -85,7 +85,7 @@ export default function PortfolioArea() {
     <>
       <div className="projects-area" id="portfolio">
         <div className="custom-icon">
-          <img src="assets/images/custom/work-scribble.svg" alt="custom" width={238} height={131} />
+          <Image src="/assets/images/custom/work-scribble.svg" alt="custom" width={238} height={131} />
         </div>
         <div className="container">
           {/* Filter Tabs */}
@@ -112,7 +112,7 @@ export default function PortfolioArea() {
                 <div className="portfolio-card wow fadeInUp delay-0-2s">
                   <div className="portfolio-card-image">
                     {item.imgPath ? (
-                      <img src={item.imgPath} alt={`${item.title} — developed by Hasitha Priyadarshana`} width={648} height={420} loading="lazy" style={{ width: "100%", height: "auto" }} />
+                      <Image src={item.imgPath.startsWith('/') ? item.imgPath : `/${item.imgPath}`} alt={`${item.title} — developed by Hasitha Priyadarshana`} width={648} height={420} unoptimized style={{ width: "100%", height: "auto" }} />
                     ) : (
                       <Image src={item.image!} alt={item.title} style={{ height: "auto", width: "100%" }} />
                     )}

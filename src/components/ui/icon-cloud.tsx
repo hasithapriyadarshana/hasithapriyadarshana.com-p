@@ -24,7 +24,6 @@ function easeOutCubic(t: number): number {
 export function IconCloud({
   icons,
   images,
-  showControl = false,
 }: IconCloudProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [iconPositions, setIconPositions] = useState<Icon[]>([])

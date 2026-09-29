@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link";
+import Image from "next/image";
 import UseSticky from "@/hooks/UseSticky";
 import NavMenu from "./NavMenu"; 
 import { useState } from "react";
@@ -20,7 +21,7 @@ export default function HeaderOne() {
                 <div className="col-xl-2 col-lg-2 col-md-6 col-6 col-sm-3">
                   <div className="logo-area">
                     <div className="logo">
-                      <Link href="/" aria-label="Hasitha Priyadarshana - Home"><img src="assets/images/Hasitha.svg" alt="Hasitha Priyadarshana Logo" width={150} height={59} /></Link>
+                      <Link href="/" aria-label="Hasitha Priyadarshana - Home"><Image src="/assets/images/Hasitha.svg" alt="Hasitha Priyadarshana Logo" width={150} height={59} priority /></Link>
                     </div>
                   </div>
                 </div>

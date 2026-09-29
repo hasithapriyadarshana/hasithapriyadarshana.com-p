@@ -1,9 +1,24 @@
 import "../styles/index.css";
 
 import type { Metadata } from "next";
+import { Oswald, Poppins } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import Preloader from "@/components/common/Preloader";
 import DisableRightClick from "@/components/common/DisableRightClick";
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
+  display: "swap",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-poppins",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -115,14 +130,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${oswald.variable} ${poppins.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        />
         <link rel="preload" href="/assets/fonts/fa-light-300.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <link rel="preload" href="/assets/fonts/remixicon.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
         <script

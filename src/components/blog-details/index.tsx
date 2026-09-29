@@ -17,7 +17,7 @@ export default function BlogDetails({ post, relatedPosts }: BlogDetailsProps) {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <Breadcrumb title={post.title} />
+            <Breadcrumb title={post.title} compact />
             <BlogDetailsArea post={post} relatedPosts={relatedPosts} />
           </main>
           <FooterOne />

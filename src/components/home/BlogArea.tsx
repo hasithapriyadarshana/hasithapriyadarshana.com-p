@@ -1,48 +1,122 @@
+"use client";
 
-"use client"
-import React from 'react'
-import Link from 'next/link'
-import { getRecentBlogs } from '@/data/blog_data'
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { blog_data } from "@/data/blog_data";
+import type { BlogPost } from "@/types/blog";
+import styles from "./BlogArea.module.css";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 export default function BlogArea() {
-  const posts = getRecentBlogs(3)
+  const [posts, setPosts] = useState<BlogPost[]>(blog_data);
+
+  useEffect(() => {
+    async function loadPublished() {
+      try {
+        const response = await fetch("/api/admin/blog", { cache: "no-store" });
+        if (response.ok) {
+          const livePosts = (await response.json()) as BlogPost[];
+          const published = livePosts.filter((post) => post.published);
+          if (published.length > 0) {
+            setPosts(published);
+          }
+        }
+      } catch {
+        // Fallback to static blog data if API is unavailable
+      }
+    }
+    loadPublished();
+  }, []);
 
   return (
-    <>
-      <section className="blog-area">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-12 col-lg-12">
-              <div className="section-title wow fadeInUp delay-0-2s">
-                <h2>Stories</h2>
-              </div>
+    <section className="blog-area" id="blog" style={{ padding: "100px 0 60px" }}>
+      <div className="container">
+        <div className="row align-items-end mb-5">
+          <div className="col-lg-8 col-md-8">
+            <div className="section-title section-black-title mb-0 wow fadeInUp delay-0-2s">
+              <span className="sub-title">Articles & Insights</span>
+              <h2 style={{ color: "#ffffff" }}>Latest Stories</h2>
             </div>
           </div>
-
-          {posts.map((post, index) => (
-            <div key={post.id} className="row blog-post-box align-items-center">
-              <div className="col-lg-6">
-                <div className="blog-post-img">
-                  <Link href={`/blog/${post.slug}`}>
-                    <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
-                  </Link>
-                  <div className="blog-post-category">
-                    <a href="#">{post.category}</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="blog-post-caption">
-                  <h3>Posted on {post.date}</h3>
-                  <h2><Link className="link-decoration" href={`/blog/${post.slug}`}>{post.title}</Link></h2>
-                   <Link className="theme-btn theme-btn-two" href={`/blog/${post.slug}`} aria-label={`Read more about ${post.title}`}>Read more <i className="ri-arrow-right-line"></i></Link>
-                </div>
-              </div>
+          <div className="col-lg-4 col-md-4 text-md-end mt-3 mt-md-0">
+            <div className={styles.navControls}>
+              <button className={`${styles.navBtn} blog-carousel-prev`} aria-label="Previous article">
+                <i className="ri-arrow-left-line"></i>
+              </button>
+              <button className={`${styles.navBtn} blog-carousel-next`} aria-label="Next article">
+                <i className="ri-arrow-right-line"></i>
+              </button>
             </div>
-          ))}
-
+          </div>
         </div>
-      </section>
-    </>
-  )
+
+        <Swiper
+          className={styles.swiperWrapper}
+          modules={[Autoplay, Navigation, Pagination]}
+          spaceBetween={24}
+          slidesPerView={1}
+          loop={posts.length > 2}
+          autoplay={{
+            delay: 4500,
+            disableOnInteraction: false,
+          }}
+          navigation={{
+            prevEl: ".blog-carousel-prev",
+            nextEl: ".blog-carousel-next",
+          }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {posts.map((post) => {
+            const imageSrc = post.image.startsWith("/") || post.image.startsWith("http")
+              ? post.image
+              : `/${post.image}`;
+
+            return (
+              <SwiperSlide key={post.id} style={{ height: "auto" }}>
+                <article className={styles.card}>
+                  <div className={styles.imageWrapper}>
+                    <Link href={`/blog/${post.slug}`}>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={imageSrc} alt={post.title} loading="lazy" />
+                    </Link>
+                    {post.category && (
+                      <span className={styles.categoryTag}>{post.category}</span>
+                    )}
+                  </div>
+                  <div className={styles.cardContent}>
+                    <div className={styles.meta}>
+                      <span>{post.date}</span>
+                      {post.readTime && <span>• {post.readTime}</span>}
+                    </div>
+                    <h3 className={styles.cardTitle}>
+                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    </h3>
+                    <p className={styles.excerpt}>{post.excerpt}</p>
+                    <Link href={`/blog/${post.slug}`} className={styles.readMoreBtn}>
+                      Read article <i className="ri-arrow-right-line"></i>
+                    </Link>
+                  </div>
+                </article>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+    </section>
+  );
 }

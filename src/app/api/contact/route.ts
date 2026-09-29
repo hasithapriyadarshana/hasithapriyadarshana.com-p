@@ -19,10 +19,13 @@ async function verifyCaptcha(token: string): Promise<boolean> {
 
 export async function POST(req: NextRequest) {
   try {
+    const isLocalRequest =
+      process.env.NODE_ENV === "development" &&
+      ["localhost", "127.0.0.1", "::1"].includes(req.nextUrl.hostname);
     const body = await req.json();
     const { name, email, phone, service, subject, message, captchaToken } = body;
 
-    if (!name || !email || !subject || !message || !captchaToken) {
+    if (!name || !email || !subject || !message || (!isLocalRequest && !captchaToken)) {
       return NextResponse.json(
         { message: "All required fields must be filled." },
         { status: 400 },
@@ -51,7 +54,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!RECAPTCHA_SECRET_KEY) {
+    if (!isLocalRequest && !RECAPTCHA_SECRET_KEY) {
       console.error("RECAPTCHA_SECRET_KEY is not set");
       return NextResponse.json(
         { message: "Server configuration error." },
@@ -67,7 +70,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const captchaValid = await verifyCaptcha(captchaToken);
+    const captchaValid = isLocalRequest || await verifyCaptcha(captchaToken);
     if (!captchaValid) {
       return NextResponse.json(
         { message: "Captcha verification failed. Please try again." },

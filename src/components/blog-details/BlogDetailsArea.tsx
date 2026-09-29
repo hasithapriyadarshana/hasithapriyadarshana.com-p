@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import { BlogPost } from "@/types/blog";
+import ReactMarkdown from "react-markdown";
+import { formatBlogDate } from "@/lib/blogs";
 
 interface BlogDetailsAreaProps {
   post: BlogPost;
@@ -22,40 +25,39 @@ export default function BlogDetailsArea({
                   <div className="col-lg-8">
                     <div className="postbox__main-wrapper">
                       <div className="postbox__thumb w-img mb-30">
-                        <img src={`/${post.image}`} alt={post.title} width={1024} height={590} loading="lazy" />
+                         <Image src={post.image.startsWith("/") || post.image.startsWith("http") ? post.image : `/${post.image}`} alt={post.title} width={1024} height={590} unoptimized style={{ width: "100%", height: "auto" }} />
                       </div>
                       <div className="postbox__meta">
                         <span>
-                          <a href="">
+                          <span>
                             <i className="fa-light fa-user"></i>Hasitha
                             Priyadarshana
-                          </a>
+                          </span>
                         </span>
                         <span>
-                          <a href="">
+                          <span>
                             <i className="fa-light fa-clock"></i>
-                            {post.date}
-                          </a>
+                            {formatBlogDate(post.publishDate || post.date)}
+                          </span>
                         </span>
                         <span>
-                          <a href="">
+                          <span>
                             <i className="ri-folder-line"></i>
                             {post.category}
-                          </a>
+                          </span>
                         </span>
                       </div>
                       <div className="postbox__details-content-wrapper">
-                        <h3 className="postbox__details-title">
-                          {post.title}
-                        </h3>
-                        <p
-                          style={{ fontSize: "18px", fontWeight: 500, marginBottom: "24px" }}
-                          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                        />
-                        <div
-                          className="blog-content"
-                          dangerouslySetInnerHTML={{ __html: post.content }}
-                        />
+                        <div className="blog-content">
+                          <ReactMarkdown components={{
+                            img: ({ src = "", alt = "" }) => {
+                              const imageSrc = typeof src === "string" ? src : "";
+                              const match = imageSrc.match(/#width=(\d+)$/);
+                              const width = match ? Math.min(100, Math.max(25, Number(match[1]))) : 100;
+                              return <Image src={(imageSrc.replace(/#width=\d+$/, "")).startsWith("/") || (imageSrc.replace(/#width=\d+$/, "")).startsWith("http") ? imageSrc.replace(/#width=\d+$/, "") : `/${imageSrc.replace(/#width=\d+$/, "")}`} alt={alt} width={800} height={450} unoptimized style={{ width: `${width}%`, height: "auto" }} />;
+                            },
+                          }}>{post.content}</ReactMarkdown>
+                        </div>
                       </div>
                       <div className="postbox__share-wrapper mb-60">
                         <div className="row align-items-center">
@@ -156,8 +158,10 @@ export default function BlogDetailsArea({
                                 >
                                   <div className="rc__post-thumb">
                                     <Link href={`/blog/${rp.slug}`}>
-                                      <img
-                                        src={`/${rp.thumbnail}`}
+                                      <Image
+                                        src={rp.image.startsWith("/") || rp.image.startsWith("http") ? rp.image : `/${rp.image}`}
+                                        unoptimized
+                                        style={{ width: "100%", height: "auto" }}
                                         alt={rp.title}
                                         width={100}
                                         height={80}
@@ -172,7 +176,7 @@ export default function BlogDetailsArea({
                                       </Link>
                                     </h3>
                                     <div className="rc__meta">
-                                      <span>{rp.date}</span>
+                                      <span>{formatBlogDate(rp.publishDate || rp.date)}</span>
                                     </div>
                                   </div>
                                 </div>

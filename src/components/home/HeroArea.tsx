@@ -1,42 +1,12 @@
 "use client"
 import React from 'react'
-import confetti from 'canvas-confetti'
+import Image from 'next/image'
 import { Meteors } from "@/components/ui/meteors"
 import { Dock, DockIcon } from "@/components/ui/dock"
 import { BorderBeam } from "@/components/ui/border-beam"
 import { Ripple } from "@/components/ui/ripple"
-import { SparklesText } from "@/components/ui/sparkles-text"
 
 export default function HeroArea() {
-  const handleImageClick = () => {
-    const defaults = {
-      spread: 360,
-      ticks: 50,
-      gravity: 0,
-      decay: 0.94,
-      startVelocity: 30,
-      colors: ["#FFE400", "#FFBD00", "#E89400", "#FFCA6C", "#FDFFB8"],
-    }
-
-    const shoot = () => {
-      confetti({
-        ...defaults,
-        particleCount: 40,
-        scalar: 1.2,
-        shapes: ["star"],
-      })
-      confetti({
-        ...defaults,
-        particleCount: 10,
-        scalar: 0.75,
-        shapes: ["circle"],
-      })
-    }
-
-    setTimeout(shoot, 0)
-    setTimeout(shoot, 100)
-    setTimeout(shoot, 200)
-  }
   return (
     <>
       <section id="home" className="main-hero-area" style={{ position: 'relative' }}>
@@ -47,9 +17,9 @@ export default function HeroArea() {
         <div className="container" style={{ position: 'relative', zIndex: 1 }}>
           <div className="row">
             <div className="col-lg-12">
-                <SparklesText sparklesCount={15} colors={{ first: "#c9a84c", second: "#e4c76b" }} className="hero-content wow fadeInUp text-center delay-0-2s">
-                  <h2>Hasitha Priyadarshana</h2>
-                </SparklesText>
+              <div className="hero-content wow fadeInUp text-center delay-0-2s">
+                <h2>Hasitha Priyadarshana</h2>
+              </div>
             </div>
           </div>
           <div className="row">
@@ -71,15 +41,15 @@ export default function HeroArea() {
                   </DockIcon>
                 </Dock>
                 </div>
-                <p className="hero-avail-text">                <img src="assets/images/online.gif" alt="online" className="avail-icon" width={30} height={30} />Available for internship and freelance projects</p>
+                <p className="hero-avail-text">                <Image src="/assets/images/online.gif" alt="online" className="avail-icon" width={30} height={30} unoptimized />Available for internship and freelance projects</p>
                 <p className="hero-info-text">
                   ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
                 </p>
               </div>
             </div>
             <div className="col-lg-6">
-              <div className="hero-image" onClick={handleImageClick} style={{ cursor: "pointer" }}>
-                <img src="assets/images/about/me.svg" alt="Hasitha Priyadarshana — Network Technology & Web Developer" width={640} height={788} fetchPriority="high" />
+              <div className="hero-image">
+                <Image src="/assets/images/about/me.svg" alt="Hasitha Priyadarshana — Network Technology & Web Developer" width={640} height={788} priority />
                 <BorderBeam duration={6} size={400} className="from-transparent via-red-500 to-transparent" />
                 <BorderBeam duration={6} delay={3} size={400} borderWidth={2} className="from-transparent via-blue-500 to-transparent" />
               </div>
