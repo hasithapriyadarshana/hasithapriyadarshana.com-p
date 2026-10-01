@@ -6,14 +6,14 @@ import NavMenu from "./NavMenu";
 import { useState } from "react";
 import Sidebar from "@/components/common/Sidebar";
 
-export default function HeaderOne() {
+export default function HeaderOne({ articlePage = false }: { articlePage?: boolean }) {
 
   const { sticky } = UseSticky()
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <header className={`main-header ${sticky ? 'fixed-header' : ''}`}>
+      <header className={`main-header${articlePage ? ' blog-article-header' : ''}${sticky ? ' fixed-header' : ''}`}>
         <div className="header-upper">
           <div className="container">
             <div className="header-inner">

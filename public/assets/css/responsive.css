@@ -764,6 +764,19 @@ Version      : 1.0
 }
 
 @media only screen and (max-width: 767px) {
+    .main-header.blog-article-header .header-upper {
+        background: var(--primary-color);
+    }
+
+    .single-page-hero-area.blog-article-hero {
+        display: none;
+    }
+
+    .blog-content p,
+    .blog-content li {
+        text-align: justify;
+    }
+
     .blog-item .image {
         max-width: none;
         margin-right: 0;
