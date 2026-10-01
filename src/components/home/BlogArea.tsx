@@ -94,9 +94,6 @@ export default function BlogArea() {
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={imageSrc} alt={post.title} loading="lazy" />
                     </Link>
-                    {post.category && (
-                      <span className={styles.categoryTag}>{post.category}</span>
-                    )}
                   </div>
                   <div className={styles.cardContent}>
                     <div className={styles.meta}>

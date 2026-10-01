@@ -13,7 +13,7 @@ interface BlogDetailsProps {
 export default function BlogDetails({ post, relatedPosts }: BlogDetailsProps) {
   return (
     <>
-      <HeaderOne />
+      <HeaderOne articlePage />
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>

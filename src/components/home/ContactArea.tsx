@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import dynamic from 'next/dynamic'
 
 const ReCAPTCHA = dynamic(() => import('react-google-recaptcha'), { ssr: false })
-const recaptchaSiteKey = process.env.RECAPTCHA_SITE_KEY?.trim()
+const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim()
 
 const countryCodes = [
   { code: "+94", country: "LK" },
