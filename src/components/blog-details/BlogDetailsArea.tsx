@@ -157,7 +157,7 @@ export default function BlogDetailsArea({
                                   className="rc__post d-flex align-items-center"
                                 >
                                   <div className="rc__post-thumb">
-                                    <Link href={`/blog/${rp.slug}`}>
+                                    <a href={`/blog/${rp.slug}`}>
                                       <Image
                                         src={rp.image.startsWith("/") || rp.image.startsWith("http") ? rp.image : `/${rp.image}`}
                                         unoptimized
@@ -167,13 +167,13 @@ export default function BlogDetailsArea({
                                         height={80}
                                         loading="lazy"
                                       />
-                                    </Link>
+                                    </a>
                                   </div>
                                   <div className="rc__post-content">
                                     <h3 className="rc__post-title">
-                                      <Link href={`/blog/${rp.slug}`}>
+                                      <a href={`/blog/${rp.slug}`}>
                                         {rp.title}
-                                      </Link>
+                                      </a>
                                     </h3>
                                     <div className="rc__meta">
                                       <span>{formatBlogDate(rp.publishDate || rp.date)}</span>

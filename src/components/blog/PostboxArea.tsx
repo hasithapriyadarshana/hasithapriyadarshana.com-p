@@ -27,9 +27,9 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                 {posts.map((post) => (
                   <article key={post.id} className="postbox__item format-image mb-50 transition-3">
                     <div className="postbox__thumb w-img">
-                      <Link href={`/blog/${post.slug}`}>
+                      <a href={`/blog/${post.slug}`}>
                         <Image src={post.image.startsWith('/') || post.image.startsWith('http') ? post.image : `/${post.image}`} alt={post.title} width={1024} height={590} unoptimized style={{ width: "100%", height: "auto" }} />
-                      </Link>
+                      </a>
                     </div>
                     <div className="postbox__content">
                       <div className="postbox__meta">
@@ -44,13 +44,13 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                         </span>
                       </div>
                       <h3 className="postbox__title">
-                        <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                        <a href={`/blog/${post.slug}`}>{post.title}</a>
                       </h3>
                       <div className="postbox__text">
                         <p>{post.excerpt}</p>
                       </div>
                       <div className="postbox__read-more">
-                         <Link href={`/blog/${post.slug}`} className="theme-btn" aria-label={`Read more about ${post.title}`}>Read more</Link>
+                         <a href={`/blog/${post.slug}`} className="theme-btn" aria-label={`Read more about ${post.title}`}>Read more</a>
                       </div>
                     </div>
                   </article>
@@ -81,7 +81,7 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                       {recentPosts.map((rp) => (
                         <div key={rp.id} className="rc__post d-flex align-items-center">
                           <div className="rc__post-thumb">
-                             <Link href={`/blog/${rp.slug}`}>
+                             <a href={`/blog/${rp.slug}`}>
                                <Image 
                                  src={rp.image.startsWith('/') || rp.image.startsWith('http') ? rp.image : `/${rp.image}`} 
                                  alt={rp.title} 
@@ -90,11 +90,11 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                                  unoptimized 
                                  style={{ width: "80px", height: "80px", objectFit: "cover", borderRadius: "8px" }} 
                                />
-                             </Link>
+                             </a>
                           </div>
                           <div className="rc__post-content">
                             <h3 className="rc__post-title">
-                              <Link href={`/blog/${rp.slug}`}>{rp.title}</Link>
+                              <a href={`/blog/${rp.slug}`}>{rp.title}</a>
                             </h3>
                             <div className="rc__meta">
                                <span>{formatBlogDate(rp.publishDate || rp.date)}</span>

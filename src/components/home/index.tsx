@@ -11,8 +11,9 @@ import TestimonoalArea from './TestimonoalArea'
 import BlogArea from './BlogArea'
 import ContactArea from './ContactArea'
 import FooterOne from '@/layouts/footers/FooterOne'
+import type { BlogPost } from '@/types/blog'
 
-export default function Home() {
+export default function Home({ posts }: { posts: BlogPost[] }) {
   return (
     <>
       <HeaderOne />
@@ -26,7 +27,7 @@ export default function Home() {
             <ServiceArea />
             <PortfolioArea />
             <TestimonoalArea />
-            <BlogArea />
+            <BlogArea posts={posts} />
             <ContactArea />
           </main>
           <FooterOne />

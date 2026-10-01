@@ -4,6 +4,9 @@ import React from 'react'
 import type { Metadata } from 'next'  
 import Home from '@/components/home'
 import Wrapper from '@/layouts/Wrapper'
+import { getPublishedPosts } from '@/lib/blogs'
+
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer',
@@ -28,10 +31,12 @@ export const metadata: Metadata = {
   },
 }
 
-export default function index() {
+export default async function index() {
+  const posts = await getPublishedPosts()
+
   return (
     <Wrapper>
-     <Home /> 
+     <Home posts={posts} />
     </Wrapper>
   )
 }

@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { blog_data } from "@/data/blog_data";
 import type { BlogPost } from "@/types/blog";
 import styles from "./BlogArea.module.css";
 
@@ -12,26 +10,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function BlogArea() {
-  const [posts, setPosts] = useState<BlogPost[]>(blog_data);
-
-  useEffect(() => {
-    async function loadPublished() {
-      try {
-        const response = await fetch("/api/admin/blog", { cache: "no-store" });
-        if (response.ok) {
-          const livePosts = (await response.json()) as BlogPost[];
-          const published = livePosts.filter((post) => post.published);
-          if (published.length > 0) {
-            setPosts(published);
-          }
-        }
-      } catch {
-        // Fallback to static blog data if API is unavailable
-      }
-    }
-    loadPublished();
-  }, []);
+export default function BlogArea({ posts }: { posts: BlogPost[] }) {
+  if (posts.length === 0) return null;
 
   return (
     <section className="blog-area" id="blog" style={{ padding: "100px 0 60px" }}>
@@ -90,10 +70,10 @@ export default function BlogArea() {
               <SwiperSlide key={post.id} style={{ height: "auto" }}>
                 <article className={styles.card}>
                   <div className={styles.imageWrapper}>
-                    <Link href={`/blog/${post.slug}`}>
+                    <a href={`/blog/${post.slug}`}>
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img src={imageSrc} alt={post.title} loading="lazy" />
-                    </Link>
+                    </a>
                   </div>
                   <div className={styles.cardContent}>
                     <div className={styles.meta}>
@@ -101,12 +81,12 @@ export default function BlogArea() {
                       {post.readTime && <span>• {post.readTime}</span>}
                     </div>
                     <h3 className={styles.cardTitle}>
-                      <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                      <a href={`/blog/${post.slug}`}>{post.title}</a>
                     </h3>
                     <p className={styles.excerpt}>{post.excerpt}</p>
-                    <Link href={`/blog/${post.slug}`} className={styles.readMoreBtn}>
+                    <a href={`/blog/${post.slug}`} className={styles.readMoreBtn}>
                       Read article <i className="ri-arrow-right-line"></i>
-                    </Link>
+                    </a>
                   </div>
                 </article>
               </SwiperSlide>

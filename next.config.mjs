@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
+  deploymentId: process.env.VERCEL_DEPLOYMENT_ID,
   env: {
     NEXT_PUBLIC_RECAPTCHA_SITE_KEY:
       process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || process.env.RECAPTCHA_SITE_KEY || "",

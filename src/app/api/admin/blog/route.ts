@@ -48,6 +48,7 @@ export async function POST(request: Request) {
       permissions,
     });
     revalidatePath("/blog");
+    revalidatePath("/");
     return NextResponse.json(toBlogPost(row as never), { status: 201 });
   } catch (error) {
     if (uploadedFileId) await serverStorage.deleteFile({ bucketId: serverAppwriteConfig.bucketId, fileId: uploadedFileId }).catch(() => undefined);

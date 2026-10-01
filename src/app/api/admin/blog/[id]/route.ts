@@ -53,6 +53,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
       await serverStorage.deleteFile({ bucketId: serverAppwriteConfig.bucketId, fileId: current.imageFileId }).catch(() => undefined);
     }
     revalidatePath("/blog");
+    revalidatePath("/");
     revalidatePath(`/blog/${post.slug}`);
     return NextResponse.json(toBlogPost(row as never));
   } catch (error) {
@@ -75,6 +76,7 @@ export async function DELETE(request: Request, { params }: RouteContext) {
       await serverStorage.deleteFile({ bucketId: serverAppwriteConfig.bucketId, fileId: row.imageFileId }).catch(() => undefined);
     }
     revalidatePath("/blog");
+    revalidatePath("/");
     revalidatePath(`/blog/${row.slug}`);
     return NextResponse.json({ success: true });
   } catch (error) {
