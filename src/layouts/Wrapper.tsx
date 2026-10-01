@@ -4,7 +4,6 @@ import { gsap } from "gsap";
 import React, { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { animationCreate } from "@/utils/utils";
-import { scrollSmother } from "@/utils/scrollSmother";
 import ScrollToTop from "@/components/common/ScrollToTop";
 
 import { ScrollSmoother, ScrollTrigger } from "@/plugins";
@@ -22,19 +21,20 @@ export default function Wrapper({ children }: any) {
   }, []);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      ScrollSmoother.create({
-        smooth: 1.35,
-        effects: true,
-        smoothTouch: false,
-        normalizeScroll: false,
-        ignoreMobileResize: true,
-      });
-    }
-  }, [pathname]);
+    const smoother = ScrollSmoother.create({
+      smooth: 1.35,
+      effects: true,
+      smoothTouch: false,
+      normalizeScroll: false,
+      ignoreMobileResize: true,
+    });
+
+    return () => smoother.kill();
+  }, []);
 
   useEffect(() => {
-    scrollSmother();
+    const frame = requestAnimationFrame(() => ScrollTrigger.refresh());
+    return () => cancelAnimationFrame(frame);
   }, [pathname]);
 
   // round cursor
