@@ -8,9 +8,10 @@ import { BlogPost } from "@/types/blog";
 interface BlogDetailsProps {
   post: BlogPost;
   relatedPosts: BlogPost[];
+  categories: string[];
 }
 
-export default function BlogDetails({ post, relatedPosts }: BlogDetailsProps) {
+export default function BlogDetails({ post, relatedPosts, categories }: BlogDetailsProps) {
   return (
     <>
       <HeaderOne articlePage />
@@ -18,7 +19,7 @@ export default function BlogDetails({ post, relatedPosts }: BlogDetailsProps) {
         <div id="smooth-content">
           <main>
             <Breadcrumb title={post.title} compact />
-            <BlogDetailsArea post={post} relatedPosts={relatedPosts} />
+            <BlogDetailsArea post={post} relatedPosts={relatedPosts} categories={categories} />
           </main>
           <FooterOne />
         </div>

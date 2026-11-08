@@ -1,6 +1,6 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
-import { ID, Permission, Role } from "node-appwrite";
+import { ID } from "node-appwrite";
 import { InputFile } from "node-appwrite/file";
 import { blogPermissions, blogRowData, findBlogRow, parsePost, requireAdmin } from "@/lib/admin-blog";
 import { serverAppwriteConfig, serverStorage, serverTablesDB } from "@/lib/appwrite-server";
@@ -22,8 +22,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
     const data = await request.formData();
     const post = parsePost(data.get("post"));
     const cover = data.get("cover");
-    const wasPublished = current.$permissions.includes(Permission.read(Role.any()));
-    const permissions = blogPermissions(wasPublished || post.published);
+    const permissions = blogPermissions(post.published);
     let imageFileId = current.imageFileId || "";
 
     if (cover instanceof File && cover.size > 0) {
@@ -55,6 +54,7 @@ export async function PATCH(request: Request, { params }: RouteContext) {
     revalidatePath("/blog");
     revalidatePath("/");
     revalidatePath(`/blog/${post.slug}`);
+    if (current.slug && current.slug !== post.slug) revalidatePath(`/blog/${current.slug}`);
     return NextResponse.json(toBlogPost(row as never));
   } catch (error) {
     if (uploadedFileId) await serverStorage.deleteFile({ bucketId: serverAppwriteConfig.bucketId, fileId: uploadedFileId }).catch(() => undefined);

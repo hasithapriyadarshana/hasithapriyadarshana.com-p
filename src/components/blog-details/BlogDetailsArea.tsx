@@ -8,11 +8,13 @@ import { formatBlogDate } from "@/lib/blogs";
 interface BlogDetailsAreaProps {
   post: BlogPost;
   relatedPosts: BlogPost[];
+  categories: string[];
 }
 
 export default function BlogDetailsArea({
   post,
   relatedPosts,
+  categories,
 }: BlogDetailsAreaProps) {
   return (
     <section className="postbox__area grey-bg-4 pt-120 pb-120">
@@ -65,9 +67,9 @@ export default function BlogDetailsArea({
                             <div className="tagcloud tagcloud-sm">
                               <span>Tags:</span>
                               {post.tags.map((tag) => (
-                                <a key={tag} href="#">
+                                <Link key={tag} href={`/blog?tag=${encodeURIComponent(tag)}`}>
                                   {tag}
-                                </a>
+                                </Link>
                               ))}
                             </div>
                           </div>
@@ -189,26 +191,16 @@ export default function BlogDetailsArea({
                         <h3 className="sidebar__widget-title">Categories</h3>
                         <div className="sidebar__widget-content">
                           <ul>
-                            <li>
-                              <Link href="/blog">Network Solutions</Link>
-                            </li>
-                            <li>
-                              <Link href="/blog">Website Design</Link>
-                            </li>
-                            <li>
-                              <Link href="/blog">WordPress Solutions</Link>
-                            </li>
-                            <li>
-                              <Link href="/blog">Website Maintenance</Link>
-                            </li>
-                            <li>
-                              <Link href="/blog">Website Migration</Link>
-                            </li>
-                            <li>
-                              <Link href="/blog">
-                                Social Media Marketing
-                              </Link>
-                            </li>
+                            {categories.map((category) => (
+                              <li key={category}>
+                                <Link
+                                  href={`/blog?category=${encodeURIComponent(category)}`}
+                                  className={post.category === category ? "active" : undefined}
+                                >
+                                  {category}
+                                </Link>
+                              </li>
+                            ))}
                           </ul>
                         </div>
                       </div>
@@ -217,9 +209,9 @@ export default function BlogDetailsArea({
                         <div className="sidebar__widget-content">
                           <div className="tagcloud">
                             {post.tags.map((tag) => (
-                              <a key={tag} href="#">
+                              <Link key={tag} href={`/blog?tag=${encodeURIComponent(tag)}`}>
                                 {tag}
-                              </a>
+                              </Link>
                             ))}
                           </div>
                         </div>

@@ -51,11 +51,13 @@ export function toBlogPost(row: BlogRow): BlogPost {
 }
 
 export function formatBlogDate(date: string) {
+  const parsed = new Date(date);
+  if (Number.isNaN(parsed.getTime())) return date;
   return new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
-  }).format(new Date(date));
+  }).format(parsed);
 }
 
 export async function getPublishedPosts(): Promise<BlogPost[]> {

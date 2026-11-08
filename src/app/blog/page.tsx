@@ -28,12 +28,18 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function BlogPage() {
-  const posts = await getPublishedPosts()
+type BlogPageProps = {
+  searchParams: Promise<{ category?: string | string[]; tag?: string | string[] }>
+}
+
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+  const [posts, params] = await Promise.all([getPublishedPosts(), searchParams])
+  const activeCategory = typeof params.category === 'string' ? params.category : undefined
+  const activeTag = typeof params.tag === 'string' ? params.tag : undefined
 
   return (
     <Wrapper>
-      <Blog posts={posts} />
+      <Blog posts={posts} activeCategory={activeCategory} activeTag={activeTag} />
     </Wrapper>
   )
 }

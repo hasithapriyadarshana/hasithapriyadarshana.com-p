@@ -5,10 +5,28 @@ import Image from 'next/image'
 import type { BlogPost } from '@/types/blog'
 import { formatBlogDate } from '@/lib/blogs'
 
-export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
+export default function PostboxArea({
+  posts,
+  activeCategory,
+  activeTag,
+}: {
+  posts: BlogPost[]
+  activeCategory?: string
+  activeTag?: string
+}) {
   const categories = Array.from(new Set(posts.map((post) => post.category)))
   const tags = Array.from(new Set(posts.flatMap((post) => post.tags)))
   const recentPosts = posts.slice(0, 3)
+  const filteredPosts = posts.filter(
+    (post) =>
+      (!activeCategory || post.category === activeCategory) &&
+      (!activeTag || post.tags.includes(activeTag)),
+  )
+  const filterLabel = activeCategory
+    ? `Category: ${activeCategory}`
+    : activeTag
+      ? `Tag: ${activeTag}`
+      : ""
 
   return (
     <>
@@ -24,7 +42,15 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                     <p>Check back soon for writing on networking, security, and building for the web.</p>
                   </div>
                 )}
-                {posts.map((post) => (
+                {posts.length > 0 && filteredPosts.length === 0 && (
+                  <div className="blog-empty-state">
+                    <span>{filterLabel}</span>
+                    <h3>No articles found.</h3>
+                    <p>Try another category or tag, or browse all articles.</p>
+                    <Link href="/blog" className="theme-btn">View all articles</Link>
+                  </div>
+                )}
+                {filteredPosts.map((post) => (
                   <article key={post.id} className="postbox__item format-image mb-50 transition-3">
                     <div className="postbox__thumb w-img">
                       <a href={`/blog/${post.slug}`}>
@@ -110,7 +136,14 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                   <div className="sidebar__widget-content">
                     <ul>
                       {categories.map((cat) => (
-                        <li key={cat}><Link href="/blog">{cat}</Link></li>
+                        <li key={cat}>
+                          <Link
+                            href={`/blog?category=${encodeURIComponent(cat)}`}
+                            className={activeCategory === cat ? "active" : undefined}
+                          >
+                            {cat}
+                          </Link>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -120,7 +153,13 @@ export default function PostboxArea({ posts }: { posts: BlogPost[] }) {
                   <div className="sidebar__widget-content">
                     <div className="tagcloud">
                       {tags.map((tag) => (
-                        <a key={tag} href="#">{tag}</a>
+                        <Link
+                          key={tag}
+                          href={`/blog?tag=${encodeURIComponent(tag)}`}
+                          className={activeTag === tag ? "active" : undefined}
+                        >
+                          {tag}
+                        </Link>
                       ))}
                     </div>
                   </div>

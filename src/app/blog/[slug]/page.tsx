@@ -53,13 +53,19 @@ export default async function BlogDetailPage({ params }: Props) {
 
   if (!post) notFound();
 
-  const relatedPosts = posts
-    .filter((candidate) => candidate.id !== post.id && candidate.category === post.category)
-    .slice(0, 3);
+  const sameCategory = posts.filter(
+    (candidate) => candidate.id !== post.id && candidate.category === post.category,
+  );
+  const relatedPosts = (
+    sameCategory.length > 0
+      ? sameCategory
+      : posts.filter((candidate) => candidate.id !== post.id)
+  ).slice(0, 3);
+  const categories = Array.from(new Set(posts.map((candidate) => candidate.category)));
 
   return (
     <Wrapper>
-      <BlogDetails post={post} relatedPosts={relatedPosts} />
+      <BlogDetails post={post} relatedPosts={relatedPosts} categories={categories} />
     </Wrapper>
   );
 }
