@@ -9,11 +9,39 @@ interface DataType {
   title: string;
   desc: string;
   category: string;
+  date?: string;
   github?: string;
   live?: string;
 }
 
 const portfolio_data: DataType[] = [
+  {
+    id: 8,
+    imgPath: "assets/images/projects/Enterprise Network Monitoring Using Zabbix.webp",
+    title: "Enterprise Network Monitoring Using Zabbix",
+    desc: "Implemented a centralized network monitoring solution using Zabbix on VirtualBox, monitoring a GNS3 topology with 2 routers, 2 switches, and 4 PCs. Configured SNMP-based monitoring to track device availability, bandwidth, CPU, and memory utilization, with custom triggers and automated alerts for network issues.",
+    category: "networking",
+    date: "Nov 2026 - Ongoing",
+    github: "https://github.com/hasithapriyadarshana/EnterpriseNetworkMonitoringUsingZabbix",
+  },
+  {
+    id: 7,
+    imgPath: "assets/images/projects/FortiGate Firewall Configuration Project.webp",
+    title: "FortiGate Firewall Configuration Project",
+    desc: "Configured and secured a virtual network using GNS3, FortiGate Firewall, and Oracle VirtualBox, implementing firewall policies, DHCP, static routing, and NAT. Gained hands-on experience in network security, traffic monitoring, firewall troubleshooting, and configuration management using FortiView and FortiOS CLI.",
+    category: "networking",
+    date: "Nov 2026",
+    github: "https://github.com/hasithapriyadarshana/Fortigate-Firewall-Project",
+  },
+  {
+    id: 9,
+    imgPath: "assets/images/projects/Hospital Network Design with Cisco Packet Tracer.webp",
+    title: "Hospital Network Design with Cisco Packet Tracer",
+    desc: "Designed a hospital network connecting 4 buildings using 17 VLANs for departmental segmentation. Configured inter-VLAN routing, HSRP gateway redundancy, and 3 centralized services (DHCP, DNS, HTTP) using Cisco Packet Tracer.",
+    category: "networking",
+    date: "Oct 2026",
+    github: "https://github.com/hasithapriyadarshana/HospitalNetworkPlan",
+  },
   {
     id: 1,
     imgPath: "assets/images/projects/Hasithapriyadarshana-portfolio.gif",
@@ -119,6 +147,7 @@ export default function PortfolioArea() {
                   </div>
                   <div className="portfolio-card-content">
                     <h4>{item.title}</h4>
+                    {item.date && <span className="portfolio-card-date">{item.date}</span>}
                     <p>{item.desc}</p>
                     <div className="portfolio-card-links">
                       {item.github && (

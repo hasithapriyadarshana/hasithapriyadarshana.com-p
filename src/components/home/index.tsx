@@ -3,6 +3,7 @@ import React from 'react'
 import HeroArea from './HeroArea'
 import BrandArea from './BrandArea'
 import AboutArea from './AboutArea'
+import LicensesArea from './LicensesArea'
 import ServiceArea from './ServiceArea'
 import HeaderOne from '@/layouts/headers/HeaderOne'
 import PortfolioArea from './PortfolioArea'
@@ -24,6 +25,7 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             <BrandArea />
             <GalleryArea />
             <AboutArea />
+            <LicensesArea />
             <ServiceArea />
             <PortfolioArea />
             <TestimonoalArea />

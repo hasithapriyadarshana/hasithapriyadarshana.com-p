@@ -1759,6 +1759,76 @@ h2.about-pre-title {
     background: var(--primary-color);
 }
 
+/* Certifications section refinements */
+#certifications .service-item {
+    padding: 26px 24px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+}
+
+#certifications .service-item h4 {
+    font-size: 19px;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+#certifications .service-item p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#certifications .service-item img {
+    display: block;
+    margin-bottom: 14px !important;
+}
+
+#certifications .service-item .portfolio-btn {
+    margin-top: 14px;
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+/* Licenses & Certifications section (home) */
+.licenses-area {
+    padding-top: 100px;
+    padding-bottom: 60px;
+}
+
+.licenses-area .licenses-item {
+    padding: 26px 24px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    height: 100%;
+}
+
+.licenses-area .licenses-item h4 {
+    font-size: 19px;
+    line-height: 1.4;
+    text-transform: none;
+    letter-spacing: 0;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.licenses-area .licenses-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 14px;
+}
+
+.licenses-area .licenses-item .portfolio-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.licenses-area .licenses-see-more {
+    margin-top: 10px;
+    padding: 12px 28px;
+}
+
 
 /*
 * ----------------------------------------------------------------------------------------
@@ -2572,6 +2642,16 @@ ul.extra-skills li i {
     color: var(--main-color);
     font-size: 22px;
     text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.portfolio-card-date {
+    display: inline-block;
+    color: var(--main-color);
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-bottom: 12px;
 }
 

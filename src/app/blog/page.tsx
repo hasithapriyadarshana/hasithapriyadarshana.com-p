@@ -4,8 +4,6 @@ import { getPublishedPosts } from '@/lib/blogs'
 import { Metadata } from 'next'
 import React from 'react'
 
-export const revalidate = 60
-
 export const metadata: Metadata = {
   title: 'Blog',
   description:

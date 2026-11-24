@@ -6,8 +6,6 @@ import Home from '@/components/home'
 import Wrapper from '@/layouts/Wrapper'
 import { getPublishedPosts } from '@/lib/blogs'
 
-export const revalidate = 60
-
 export const metadata: Metadata = {
   title: 'Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer',
   description:

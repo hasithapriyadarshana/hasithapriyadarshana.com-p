@@ -95,7 +95,7 @@ const education_data = [
     proofs: [],
   },
   {
-    id: 2,
+    id: 3,
     image: "assets/images/about/hasithapriyadarshana-anandasastralaya-mathugama-asm-mathugama.svg",
     date: "2014 Jan - 2023 Feb",
     title: "G.C.E. O/L & A/L Education",
@@ -106,7 +106,7 @@ const education_data = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     image: "assets/images/about/Hasitha priyadarshana - Weediyabandara National School Morapitiya.svg",
     date: "2009 Jan - 2013 Dec",
     title: "Primary Education",
