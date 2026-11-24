@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#070707"/>
-  <line x1="300" y1="380" x2="900" y2="380" stroke="#c9a84c" stroke-width="3"/>
-  <text x="600" y="340" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">WordPress vs Custom Development</text>
-  <text x="600" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#888888">Blog Post</text>
-</svg>

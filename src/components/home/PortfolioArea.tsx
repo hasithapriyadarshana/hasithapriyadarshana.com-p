@@ -94,6 +94,47 @@ const portfolio_data: DataType[] = [
   },
 ];
 
+function ProjectThumb({ item }: { item: DataType }) {
+  const raw = item.imgPath
+    ? item.imgPath.startsWith("/")
+      ? item.imgPath
+      : `/${item.imgPath}`
+    : null;
+  const isGif = !!raw && raw.toLowerCase().endsWith(".gif");
+  const poster = isGif && raw ? raw.replace(/\.gif$/i, "-poster.webp") : raw;
+  const [hovered, setHovered] = useState(false);
+
+  if (!raw) {
+    return (
+      <Image
+        src={item.image!}
+        alt={item.title}
+        style={{ height: "auto", width: "100%" }}
+      />
+    );
+  }
+
+  return (
+    <div
+      onMouseEnter={() => isGif && setHovered(true)}
+      onMouseLeave={() => isGif && setHovered(false)}
+      style={{ width: "100%" }}
+    >
+      <Image
+        src={hovered ? raw : poster!}
+        alt={`${item.title} — developed by Hasitha Priyadarshana`}
+        width={648}
+        height={420}
+        unoptimized
+        loading="lazy"
+        decoding="async"
+        sizes="(max-width: 768px) 100vw, 33vw"
+        style={{ width: "100%", height: "auto" }}
+      />
+    </div>
+  );
+}
+
 const categories = [
   { key: "all", label: "All" },
   { key: "freelance", label: "Freelance" },
@@ -139,11 +180,7 @@ export default function PortfolioArea() {
               <div key={item.id} className="col-lg-4 col-md-6">
                 <div className="portfolio-card wow fadeInUp delay-0-2s">
                   <div className="portfolio-card-image">
-                    {item.imgPath ? (
-                      <Image src={item.imgPath.startsWith('/') ? item.imgPath : `/${item.imgPath}`} alt={`${item.title} — developed by Hasitha Priyadarshana`} width={648} height={420} unoptimized style={{ width: "100%", height: "auto" }} />
-                    ) : (
-                      <Image src={item.image!} alt={item.title} style={{ height: "auto", width: "100%" }} />
-                    )}
+                    <ProjectThumb item={item} />
                   </div>
                   <div className="portfolio-card-content">
                     <h4>{item.title}</h4>
