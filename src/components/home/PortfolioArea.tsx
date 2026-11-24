@@ -1,6 +1,6 @@
 "use client"
 import Image, { StaticImageData } from 'next/image';
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 interface DataType {
   id: number;
@@ -102,7 +102,21 @@ function ProjectThumb({ item }: { item: DataType }) {
     : null;
   const isGif = !!raw && raw.toLowerCase().endsWith(".gif");
   const poster = isGif && raw ? raw.replace(/\.gif$/i, "-poster.webp") : raw;
+  const [inView, setInView] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const thumbRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!isGif || !thumbRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { rootMargin: "150px 0px" },
+    );
+
+    observer.observe(thumbRef.current);
+    return () => observer.disconnect();
+  }, [isGif]);
 
   if (!raw) {
     return (
@@ -116,12 +130,13 @@ function ProjectThumb({ item }: { item: DataType }) {
 
   return (
     <div
-      onMouseEnter={() => isGif && setHovered(true)}
-      onMouseLeave={() => isGif && setHovered(false)}
+      ref={thumbRef}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{ width: "100%" }}
     >
       <Image
-        src={hovered ? raw : poster!}
+        src={isGif && (inView || hovered) ? raw : poster!}
         alt={`${item.title} — developed by Hasitha Priyadarshana`}
         width={648}
         height={420}
