@@ -7,7 +7,7 @@ import React from 'react'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Professional services by Hasitha Priyadarshana — network solutions, web development, cybersecurity consulting, WordPress development, social media marketing, and IT consulting in Sri Lanka.',
+    'Services by Hasitha Priyadarshana — network configuration and troubleshooting, firewall and VPN setup, Zabbix monitoring, web development, WordPress and WooCommerce, website maintenance, migration, and IT support.',
   keywords: [
     'Network Solutions Sri Lanka',
     'Web Development Services Sri Lanka',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Services | Hasitha Priyadarshana',
     description:
-      'Network solutions, web development, cybersecurity, WordPress, and IT consulting services by Hasitha Priyadarshana.',
+      'Network engineering, security, monitoring, web development, WordPress, and IT support services by Hasitha Priyadarshana.',
     url: 'https://hasithapriyadarshana.com/service',
   },
   alternates: {

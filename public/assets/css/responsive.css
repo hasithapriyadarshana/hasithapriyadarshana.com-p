@@ -220,7 +220,7 @@ Version      : 1.0
 
 @media only screen and (max-width: 767px) {
     body {
-        overflow-x: hidden;
+        overflow-x: clip;
 
     }
 

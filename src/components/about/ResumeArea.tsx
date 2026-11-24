@@ -56,7 +56,7 @@ const work_data = [
     date: "2024 Jan - Present",
     title: "Level 1 Freelancer",
     company: "Fiverr",
-    desc: "Provide professional web development and website solutions through Fiverr, specializing in <strong>WordPress, WooCommerce, custom development with React.js and Next.js, website migrations, customization, and business websites</strong>. Successfully served <strong>20+ clients and completed 50+ projects</strong>, receiving consistently positive reviews and achieving a <strong>4.9/5 average rating</strong>. One of my gigs was also selected as a <strong>Fiverr's Choice</strong> gig. This experience has strengthened my skills in client communication, customer care, project management, requirement analysis, problem-solving, and delivering quality solutions to clients worldwide.",
+    desc: "Provide professional web development and website solutions through Fiverr, specializing in <strong>WordPress, WooCommerce, custom development with React.js and Next.js, website migrations, customization, and business websites</strong>. Successfully served <strong>25+ clients and completed 45+ projects</strong>, receiving consistently positive reviews and achieving a <strong>4.9/5 average rating</strong>. One of my gigs was also selected as a <strong>Fiverr's Choice</strong> gig. This experience has strengthened my skills in client communication, customer care, project management, requirement analysis, problem-solving, and delivering quality solutions to clients worldwide.",
     proofs: [],
   },
   {
@@ -88,10 +88,10 @@ const education_data = [
   {
     id: 2,
     image: "assets/images/about/cisco.svg",
-    date: "Currently Pursuing",
-    title: "Official Cisco Networking Academy Program",
-    company: "Southland Campus",
-    desc: "Currently pursuing the <strong>Cisco Networking Academy CCNA program</strong> based on the <strong>CCNA 200-301 v1.1 syllabus</strong> through Southland Campus. The program covers <strong>CCNA 1 – Introduction to Networks</strong>, <strong>CCNA 2 – Switching, Routing & Wireless Essentials</strong>, and <strong>CCNA 3 – Enterprise Networking, Security & Automation</strong>. Through this program, I am developing practical knowledge of networking fundamentals, IP addressing, switching, routing, wireless technologies, network security, and enterprise network automation while strengthening my foundation in computer networking.",
+    date: "Completed Nov 2026",
+    title: "Cisco Certified Network Associate (CCNA 200-301)",
+    company: "Cisco Networking Academy",
+    desc: "Earned the <strong>Cisco Certified Network Associate (CCNA 200-301)</strong> certification after completing the Cisco Networking Academy program covering <strong>Introduction to Networks</strong>, <strong>Switching, Routing & Wireless Essentials</strong>, and <strong>Enterprise Networking, Security & Automation</strong>. The certification validates practical knowledge of network fundamentals, IP connectivity, IP services, security fundamentals, and automation and programmability.",
     proofs: [],
   },
   {

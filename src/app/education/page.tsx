@@ -7,7 +7,7 @@ import Breadcrumb from '@/components/common/Breadcrumb'
 export const metadata: Metadata = {
   title: 'Education | Hasitha Priyadarshana',
   description:
-    'Education background of Hasitha Priyadarshana — Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura, with specialization in networking, cybersecurity, and cloud computing.',
+    'Education background of Hasitha Priyadarshana — Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura (2024–2028), current GPA 3.68, with A/L 3 A passes and a Z-score of 2.80.',
   keywords: [
     'Hasitha Priyadarshana Education',
     'University of Sri Jayewardenepura',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Education | Hasitha Priyadarshana',
     description:
-      'Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura.',
+      'Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura with a current GPA of 3.68.',
     url: 'https://hasithapriyadarshana.com/education',
   },
   alternates: {
@@ -31,7 +31,7 @@ export default function EducationPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Education | Hasitha Priyadarshana",
-    description: "Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura.",
+    description: "Bachelor of ICT (Hons) in Network Technology at the University of Sri Jayewardenepura with a current GPA of 3.68.",
     url: "https://hasithapriyadarshana.com/education",
     author: {
       "@type": "Person",
@@ -63,13 +63,15 @@ export default function EducationPage() {
                           Specialization in Network Technology
                         </p>
                         <p style={{ color: '#999', marginBottom: '15px' }}>
-                          University of Sri Jayewardenepura
+                          University of Sri Jayewardenepura · May 2024 – May 2028 · Current GPA 3.68
+                          up to semester 5
                         </p>
                         <p>
                           Pursuing a Bachelor of Information and Communication Technology degree with
-                          a specialization in Network Technology. The program covers advanced networking,
-                          cybersecurity, cloud computing, database management, software development,
-                          and IT project management.
+                          a specialization in Network Technology. Relevant coursework includes Network
+                          Systems Design, Advanced Networking, Computer Security, Operating Systems,
+                          Distributed Networks, System Administration, Wireless Communications, and
+                          Advanced Mobile Technologies.
                         </p>
                       </div>
 

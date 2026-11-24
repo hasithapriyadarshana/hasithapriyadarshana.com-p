@@ -37,13 +37,13 @@ export default function HeroArea() {
                     <a href="https://credly.com" target="_blank" rel="noopener noreferrer" aria-label="Credly certifications"><i className="ri-award-line text-2xl"></i></a>
                   </DockIcon>
                   <DockIcon>
-                    <a href="mailto:chathasitha@gmail.com" aria-label="Send email"><i className="ri-mail-line text-2xl"></i></a>
+                    <a href="mailto:hasitha.connect@gmail.com" aria-label="Send email"><i className="ri-mail-line text-2xl"></i></a>
                   </DockIcon>
                 </Dock>
                 </div>
                 <p className="hero-avail-text">                <Image src="/assets/images/online.gif" alt="online" className="avail-icon" width={30} height={30} unoptimized />Available for internship and freelance projects</p>
                 <p className="hero-info-text">
-                  ICT Undergraduate in Network Technology (USJP) · <b>5 Star</b> Rating · <b>Level 1 Freelancer</b> in Fiverr · <b>Leading Volunteer</b> in USJP
+                  ICT Undergraduate in Network Technology (USJP) · <b>CCNA Certified</b> · <b>Fortinet NSE 3</b> · <b>5 Star</b> Fiverr Freelancer · <b>Leading Volunteer</b> at USJP
                 </p>
               </div>
             </div>
@@ -57,10 +57,9 @@ export default function HeroArea() {
             <div className="col-lg-3 pt-30">
               <div className="hero-content wow fadeInUp delay-0-4s">
                 <p style={{ marginTop: "10px" }}>
-                  Network Technology Undergraduate &amp; Web Developer. Building secure
-                  network solutions, modern web experiences, and practical technology
-                  solutions. Available for freelance projects, internships, and
-                  technology collaborations.
+                  CCNA &amp; Fortinet NSE 3 certified ICT undergraduate skilled in
+                  networking, security, Zabbix monitoring, and web development. Open
+                  to internships, managed services, and freelance projects.
                 </p>
                 <a className="theme-btn" href="/contact">Get In Touch</a>
               </div>

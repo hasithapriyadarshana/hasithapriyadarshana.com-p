@@ -8,7 +8,7 @@ import Breadcrumb from '@/components/common/Breadcrumb'
 export const metadata: Metadata = {
   title: 'Certifications | Hasitha Priyadarshana',
   description:
-    'Professional certifications earned by Hasitha Priyadarshana — networking, cybersecurity, cloud computing, and technology certifications that validate expertise in network engineering and IT.',
+    'Certifications earned by Hasitha Priyadarshana — Cisco CCNA 200-301, Fortinet NSE 3, Google Cybersecurity Professional Certificate, CNSF, AWS, Cisco Networking Academy, and DevOps courses.',
   keywords: [
     'Hasitha Priyadarshana Certifications',
     'Network Certifications Sri Lanka',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Certifications | Hasitha Priyadarshana',
     description:
-      'Professional certifications in networking, cybersecurity, cloud computing, and technology.',
+      'Cisco CCNA, Fortinet NSE 3, Google Cybersecurity, AWS, Cisco Networking Academy, and DevOps certifications by Hasitha Priyadarshana.',
     url: 'https://hasithapriyadarshana.com/certifications',
   },
   alternates: {
@@ -172,7 +172,7 @@ export default function CertificationsPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Certifications | Hasitha Priyadarshana",
-    description: "Professional certifications in networking, cybersecurity, cloud computing, and technology.",
+    description: "Cisco CCNA, Fortinet NSE 3, Google Cybersecurity, AWS, Cisco Networking Academy, and DevOps certifications by Hasitha Priyadarshana.",
     url: "https://hasithapriyadarshana.com/certifications",
     author: {
       "@type": "Person",
@@ -198,9 +198,11 @@ export default function CertificationsPage() {
                     <div className="about-content-part">
                       <h2 style={{ marginBottom: '20px' }}>Professional Certifications &amp; Training</h2>
                       <p>
-                        I hold {certifications.length} professional certifications in networking, cybersecurity,
-                        cloud computing, and DevOps. These certifications validate my expertise and demonstrate
-                        a commitment to continuous learning in the technology field.
+                        I hold {certifications.length} professional certifications and course credentials in
+                        networking, cybersecurity, cloud computing, and DevOps, including Cisco CCNA 200-301,
+                        Fortinet NSE 3, the Google Cybersecurity Professional Certificate, and CNSF. These
+                        credentials validate my knowledge of network fundamentals, IP connectivity, security
+                        fundamentals, automation, firewall administration, and defensive security practices.
                       </p>
 
                       <div style={{ marginTop: '30px' }}>

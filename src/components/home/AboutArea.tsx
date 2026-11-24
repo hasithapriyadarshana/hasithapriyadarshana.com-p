@@ -11,19 +11,19 @@ const counter_data = [
   {
     id: 2,
     title: "Freelance Projects",
-    count: 50,
+    count: 45,
     cls: "plus",
   },
   {
     id: 3,
     title: "Client Base",
-    count: 30,
+    count: 25,
     cls: "plus",
   },
   {
     id: 4,
     title: "Certifications",
-    count: 14,
+    count: 17,
     cls: "plus",
   },
 ];
@@ -45,19 +45,18 @@ export default function AboutArea() {
                   the University of Sri Jayewardenepura.
                 </p>
                 <p style={{ marginTop: "15px" }}>
-                  My technology journey started with graphic design and gradually
-                  developed into web development, networking, cybersecurity, cloud
-                  computing, and IoT. Today, I combine academic knowledge with
-                  practical project experience to build useful and reliable technology
-                  solutions.
+                  My technical foundation covers <strong>TCP/IP</strong>, subnetting,
+                  routing and switching, VLANs, OSPF, NAT/PAT, DHCP, DNS, firewalls,
+                  VPNs, and network hardening. I have hands-on experience with FortiGate,
+                  Zabbix, Wireshark, GNS3, Cisco Packet Tracer, EVE-NG, and VirtualBox
+                  through academic labs and practical projects.
                 </p>
                 <p style={{ marginTop: "15px" }}>
-                  As the founder of <strong>HyperX Innovations</strong>, I work on web
-                  and IT projects while continuing to develop my expertise in network
-                  engineering and cybersecurity. My long-term goal is to build a career
-                  in <strong>Network Engineering and Cybersecurity</strong>, with a focus
-                  on secure infrastructure, enterprise networks, cloud technologies,
-                  and innovative technology solutions.
+                  I am a <strong>Cisco Certified Network Associate (CCNA 200-301)</strong>{" "}
+                  and <strong>Fortinet NSE 3</strong> certified ICT undergraduate. I
+                  combine networking, security, monitoring, and web development
+                  experience to contribute to network operations, implementation, and
+                  security while developing enterprise networking expertise.
                 </p>
               </div>
               <div className="hero-counter-area d-flex justify-content-between wow fadeInUp delay-0-4s">

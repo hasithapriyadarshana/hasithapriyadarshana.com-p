@@ -57,14 +57,29 @@ export default function Wrapper({ children }: any) {
   }, []);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => {
+    let cancelled = false;
+
+    const refresh = () => {
+      if (cancelled) return;
       try {
         ScrollTrigger.refresh();
       } catch (error) {
         console.error("ScrollTrigger refresh failed", error);
       }
-    });
-    return () => cancelAnimationFrame(frame);
+    };
+
+    const frame = requestAnimationFrame(refresh);
+    const timeout = window.setTimeout(refresh, 500);
+
+    document.fonts?.ready.then(refresh);
+    window.addEventListener("load", refresh);
+
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+      window.removeEventListener("load", refresh);
+    };
   }, [pathname]);
 
   // round cursor

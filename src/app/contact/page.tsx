@@ -7,7 +7,7 @@ import React from 'react'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Hasitha Priyadarshana for web development, network engineering, cybersecurity, and cloud computing projects. Available for freelance work, internships, and technology collaborations in Sri Lanka.',
+    'Get in touch with Hasitha Priyadarshana — CCNA and Fortinet NSE 3 certified ICT undergraduate in Colombo, Sri Lanka — for internships, managed services, network engineering, monitoring, security, and web development opportunities.',
   keywords: [
     'Contact Hasitha Priyadarshana',
     'Freelance Web Developer Sri Lanka Contact',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Hasitha Priyadarshana',
     description:
-      'Get in touch for web development, network engineering, cybersecurity, and IT consulting projects.',
+      'Contact Hasitha Priyadarshana for internships, managed services, network engineering, monitoring, security, and web development.',
     url: 'https://hasithapriyadarshana.com/contact',
   },
   alternates: {

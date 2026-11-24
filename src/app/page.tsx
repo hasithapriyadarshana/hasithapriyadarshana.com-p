@@ -6,11 +6,12 @@ import Home from '@/components/home'
 import Wrapper from '@/layouts/Wrapper'
 
 export const metadata: Metadata = {
-  title: 'Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer',
+  title: 'Hasitha Priyadarshana | CCNA Certified Network Technology Undergraduate',
   description:
-    'Hasitha Priyadarshana is a Network Technology undergraduate at the University of Sri Jayewardenepura and a Web Developer specializing in networking, cybersecurity, web development, and technology solutions.',
+    'ICT undergraduate specializing in Network Technology, CCNA and Fortinet NSE 3 certified, with hands-on experience in network engineering, infrastructure management, security, Zabbix monitoring, and web development.',
   keywords: [
     'Hasitha Priyadarshana',
+    'Hasitha Priyadarshana CCNA Certified',
     'Hasitha Priyadarshana Network Technology',
     'Hasitha Priyadarshana Web Developer',
     'Network Technology Undergraduate Sri Lanka',
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
     'Network Engineer Sri Lanka',
   ],
   openGraph: {
-    title: 'Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer',
+    title: 'Hasitha Priyadarshana | CCNA Certified Network Technology Undergraduate',
     description:
-      'Network Technology undergraduate and web developer. Explore my projects, skills, and experience in networking, cybersecurity, and web development.',
+      'Explore projects, skills, services, and certifications of Hasitha Priyadarshana — a CCNA and Fortinet NSE 3 certified Network Technology undergraduate focused on networking, security, monitoring, and web development.',
     url: 'https://hasithapriyadarshana.com',
   },
   alternates: {

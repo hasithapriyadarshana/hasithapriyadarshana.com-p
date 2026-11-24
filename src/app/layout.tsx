@@ -7,13 +7,14 @@ import DisableRightClick from "@/components/common/DisableRightClick";
 
 export const metadata: Metadata = {
   title: {
-    default: "Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer",
+    default: "Hasitha Priyadarshana | CCNA Certified Network Technology Undergraduate",
     template: "%s | Hasitha Priyadarshana",
   },
   description:
-    "Hasitha Priyadarshana is a Network Technology undergraduate at the University of Sri Jayewardenepura and a Web Developer specializing in networking, cybersecurity, web development, and technology solutions. Founder of HyperX Innovations.",
+    "ICT undergraduate specializing in Network Technology at the University of Sri Jayewardenepura, CCNA and Fortinet NSE 3 certified, with hands-on experience in network engineering, infrastructure management, security, Zabbix monitoring, and web development.",
   keywords: [
     "Hasitha Priyadarshana",
+    "Hasitha Priyadarshana CCNA Certified",
     "Hasitha Priyadarshana Network Technology",
     "Hasitha Priyadarshana Web Developer",
     "Hasitha Priyadarshana Network Engineer",
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://hasithapriyadarshana.com",
     siteName: "Hasitha Priyadarshana",
-    title: "Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer",
+    title: "Hasitha Priyadarshana | CCNA Certified Network Technology Undergraduate",
     description:
-      "Network Technology undergraduate at the University of Sri Jayewardenepura, web developer, and founder of HyperX Innovations. Specializing in networking, cybersecurity, and modern web development.",
+      "ICT undergraduate specializing in Network Technology, CCNA and Fortinet NSE 3 certified, with hands-on experience in network engineering, security, monitoring, and web development.",
     images: [
       {
         url: "/assets/HasithaPriyadarshana-opengraph.svg",
@@ -48,9 +49,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hasitha Priyadarshana | Network Technology Undergraduate & Web Developer",
+    title: "Hasitha Priyadarshana | CCNA Certified Network Technology Undergraduate",
     description:
-      "Network Technology undergraduate, web developer, and founder of HyperX Innovations. Specializing in networking, cybersecurity, and web development.",
+      "CCNA and Fortinet NSE 3 certified Network Technology undergraduate with hands-on experience in networking, security, monitoring, and web development.",
     images: ["/assets/HasithaPriyadarshana-opengraph.svg"],
   },
   robots: {
@@ -68,17 +69,23 @@ const personSchema = {
   name: "Hasitha Priyadarshana",
   url: "https://hasithapriyadarshana.com",
   image: "https://hasithapriyadarshana.com/assets/images/about/me.svg",
-  jobTitle: "Network Technology Undergraduate & Web Developer",
+  jobTitle: "Intern Managed Services | CCNA Certified Network Technology Undergraduate",
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "University of Sri Jayewardenepura",
   },
   knowsAbout: [
+    "Managed Services",
     "Network Engineering",
+    "Network Infrastructure Management",
     "Cybersecurity",
     "Web Development",
     "Cloud Computing",
     "Cisco Networking",
+    "CCNA",
+    "Fortinet NSE 3",
+    "FortiGate",
+    "Zabbix Monitoring",
     "WordPress",
     "Next.js",
     "React",
@@ -102,7 +109,7 @@ const websiteSchema = {
   name: "Hasitha Priyadarshana",
   url: "https://hasithapriyadarshana.com",
   description:
-    "Portfolio of Hasitha Priyadarshana — Network Technology undergraduate, web developer, and founder of HyperX Innovations.",
+    "Portfolio of Hasitha Priyadarshana — CCNA and Fortinet NSE 3 certified Network Technology undergraduate with hands-on experience in networking, cybersecurity, monitoring, and web development.",
   author: {
     "@type": "Person",
     name: "Hasitha Priyadarshana",
