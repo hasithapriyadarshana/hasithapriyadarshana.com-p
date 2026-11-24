@@ -27,6 +27,9 @@ export default function LicensesArea() {
                     width={600}
                     height={400}
                     unoptimized
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     style={{
                       width: "100%",
                       height: "auto",

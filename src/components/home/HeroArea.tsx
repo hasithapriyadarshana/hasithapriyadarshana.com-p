@@ -49,7 +49,7 @@ export default function HeroArea() {
             </div>
             <div className="col-lg-6">
               <div className="hero-image">
-                <Image src="/assets/images/about/me.svg" alt="Hasitha Priyadarshana — Network Technology & Web Developer" width={640} height={788} priority />
+                <Image src="/assets/images/about/me.webp" alt="Hasitha Priyadarshana — Network Technology & Web Developer" width={640} height={788} priority sizes="(max-width: 992px) 80vw, 640px" />
                 <BorderBeam duration={6} size={400} className="from-transparent via-red-500 to-transparent" />
                 <BorderBeam duration={6} delay={3} size={400} borderWidth={2} className="from-transparent via-blue-500 to-transparent" />
               </div>

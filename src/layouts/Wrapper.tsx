@@ -17,23 +17,53 @@ export default function Wrapper({ children }: any) {
   const pathname = usePathname();
 
   useEffect(() => {
-    animationCreate();
+    try {
+      animationCreate();
+    } catch (error) {
+      console.error("Animation init failed", error);
+    }
   }, []);
 
   useEffect(() => {
-    const smoother = ScrollSmoother.create({
-      smooth: 1.35,
-      effects: true,
-      smoothTouch: false,
-      normalizeScroll: false,
-      ignoreMobileResize: true,
+    let smoother: ReturnType<typeof ScrollSmoother.create> | undefined;
+
+    try {
+      const existing = (ScrollSmoother as unknown as { get?: () => { kill: () => void } }).get?.();
+      if (existing) existing.kill();
+
+      const wrapper = document.querySelector("#smooth-wrapper");
+      const content = document.querySelector("#smooth-content");
+
+      if (wrapper && content) {
+        smoother = ScrollSmoother.create({
+          smooth: 1.35,
+          effects: true,
+          smoothTouch: false,
+          normalizeScroll: false,
+          ignoreMobileResize: true,
+        });
+      }
+    } catch (error) {
+      console.error("ScrollSmoother init failed", error);
+    }
+
+    return () => {
+      try {
+        smoother?.kill();
+      } catch (error) {
+        console.error("ScrollSmoother cleanup failed", error);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      try {
+        ScrollTrigger.refresh();
+      } catch (error) {
+        console.error("ScrollTrigger refresh failed", error);
+      }
     });
-
-    return () => smoother.kill();
-  }, []);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => ScrollTrigger.refresh());
     return () => cancelAnimationFrame(frame);
   }, [pathname]);
 

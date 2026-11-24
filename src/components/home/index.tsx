@@ -9,12 +9,10 @@ import HeaderOne from '@/layouts/headers/HeaderOne'
 import PortfolioArea from './PortfolioArea'
 import GalleryArea from './GalleryArea'
 import TestimonoalArea from './TestimonoalArea'
-import BlogArea from './BlogArea'
 import ContactArea from './ContactArea'
 import FooterOne from '@/layouts/footers/FooterOne'
-import type { BlogPost } from '@/types/blog'
 
-export default function Home({ posts }: { posts: BlogPost[] }) {
+export default function Home() {
   return (
     <>
       <HeaderOne />
@@ -29,7 +27,6 @@ export default function Home({ posts }: { posts: BlogPost[] }) {
             <ServiceArea />
             <PortfolioArea />
             <TestimonoalArea />
-            <BlogArea posts={posts} />
             <ContactArea />
           </main>
           <FooterOne />

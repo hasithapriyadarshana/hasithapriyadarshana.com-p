@@ -33,7 +33,7 @@ const certifications = [
     title: 'Cisco Certified Network Associate (CCNA 200-301)',
     date: 'Nov 2026',
     desc: 'Earned the Cisco Certified Network Associate (CCNA 200-301) certification, validating knowledge of network fundamentals, IP connectivity, IP services, security fundamentals, and automation and programmability.',
-    certificateImage: 'assets/images/certifications/cisco-ccna-200-301.jpg',
+    certificateImage: 'assets/images/certifications/cisco-ccna-200-301.webp',
     credentialId: '3d5fbf49-222b-408c-922f-c02e1ca816f8',
     credentialUrl: 'https://www.credly.com/badges/3d5fbf49-222b-408c-922f-c02e1ca816f8/public_url',
   },
@@ -42,7 +42,7 @@ const certifications = [
     title: 'Fortinet Network Security Expert (NSE) 3 – Cybersecurity',
     date: 'Oct 2026',
     desc: 'Earned the Fortinet Network Security Expert (NSE) 3 – Cybersecurity certification, validating foundational knowledge of cybersecurity concepts, threats, network security, and Fortinet security solutions.',
-    certificateImage: 'assets/images/certifications/fortinet-nse-3-cybersecurity.jpg',
+    certificateImage: 'assets/images/certifications/fortinet-nse-3-cybersecurity.webp',
     credentialId: 'eef63ec2-9823-466b-82e9-dfa6840823a6',
     credentialUrl: 'https://www.credly.com/badges/eef63ec2-9823-466b-82e9-dfa6840823a6/public_url',
   },
@@ -51,7 +51,7 @@ const certifications = [
     title: 'Google Cybersecurity Professional Certificate',
     date: 'Aug 2026',
     desc: 'Completed the Google Cybersecurity Professional Certificate on Coursera, gaining practical skills in network security, risk management, security operations, Linux, SQL, Python, and SIEM tools.',
-    certificateImage: 'assets/images/certifications/google-cybersecurity-professional-certificate.jpg',
+    certificateImage: 'assets/images/certifications/google-cybersecurity-professional-certificate.webp',
     credentialId: '0OMJ6CBMHRR8',
     credentialUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/0OMJ6CBMHRR8',
   },
@@ -60,7 +60,7 @@ const certifications = [
     title: 'Certified Network Security Fundamentals (CNSF)',
     date: 'Nov 2026',
     desc: 'Earned the Certified Network Security Fundamentals (CNSF) certification from Red Team Leaders, covering core cybersecurity concepts, threats, vulnerabilities, risk management, and defensive security practices.',
-    certificateImage: 'assets/images/certifications/certified-network-security-fundamentals-cnsf.jpg',
+    certificateImage: 'assets/images/certifications/certified-network-security-fundamentals-cnsf.webp',
     credentialId: '29ee33e6edb4150e',
     credentialUrl: 'https://courses.redteamleaders.com/exam-completion/29ee33e6edb4150e',
   },
@@ -69,7 +69,7 @@ const certifications = [
     title: 'CCNA: Enterprise Networking, Security, and Automation',
     date: 'Oct 2026',
     desc: 'Completed the CCNA: Enterprise Networking, Security, and Automation course through the Cisco Networking Academy, covering enterprise networking, WAN technologies, network security, and automation.',
-    certificateImage: 'assets/images/certifications/ccna-enterprise-networking-security-automation.jpg',
+    certificateImage: 'assets/images/certifications/ccna-enterprise-networking-security-automation.webp',
     credentialId: '097a4cf2-2d16-442e-bf7b-4de48960f2f1',
     credentialUrl: 'https://www.credly.com/badges/097a4cf2-2d16-442e-bf7b-4de48960f2f1/public_url',
   },
@@ -78,7 +78,7 @@ const certifications = [
     title: 'CCNA: Switching, Routing, and Wireless Essentials',
     date: 'Sep 2026',
     desc: 'Completed the CCNA: Switching, Routing, and Wireless Essentials course through the Cisco Networking Academy, covering switching, routing, wireless networking, and network security fundamentals.',
-    certificateImage: 'assets/images/certifications/ccna-switching-routing-wireless-essentials.jpg',
+    certificateImage: 'assets/images/certifications/ccna-switching-routing-wireless-essentials.webp',
     credentialId: 'cde0de1f-f6f5-4d28-9eef-2d4dd56ebef8',
     credentialUrl: 'https://www.credly.com/badges/cde0de1f-f6f5-4d28-9eef-2d4dd56ebef8/public_url',
   },
@@ -87,7 +87,7 @@ const certifications = [
     title: 'CCNA: Introduction to Networks',
     date: 'Aug 2026',
     desc: 'Completed the CCNA: Introduction to Networks course through the Cisco Networking Academy, building a foundation in network fundamentals, protocols, addressing, and network configuration.',
-    certificateImage: 'assets/images/certifications/ccna-introduction-to-networks.jpg',
+    certificateImage: 'assets/images/certifications/ccna-introduction-to-networks.webp',
     credentialId: 'b788b78f-bb04-46b1-a071-3fd1c1394e52',
     credentialUrl: 'https://www.credly.com/badges/b788b78f-bb04-46b1-a071-3fd1c1394e52/public_url',
   },
@@ -213,6 +213,9 @@ export default function CertificationsPage() {
                                 width={600}
                                 height={400}
                                 unoptimized
+                                loading="lazy"
+                                decoding="async"
+                                sizes="(max-width: 768px) 100vw, 600px"
                                 style={{ width: '100%', height: 'auto', borderRadius: '8px', marginBottom: '10px' }}
                               />
                             )}
